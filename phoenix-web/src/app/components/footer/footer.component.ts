@@ -17,8 +17,8 @@ import { FormsModule } from '@angular/forms';
           <!-- Column 1: Company Profile (2 Cols Wide on Large) -->
           <div class="lg:col-span-2 space-y-4">
             <div class="flex items-center gap-3">
-              <div class="bg-white p-1 rounded-xl shadow-md">
-                <img src="images/print/logo.jpeg" alt="Phoenix Labels Logo" class="h-10 w-auto object-contain" />
+              <div class="bg-white p-1 rounded-2xl shadow-md border border-slate-700/50 w-11 h-11 flex items-center justify-center">
+                <img src="favicon.svg" alt="Phoenix Labels Logo" class="w-full h-full object-contain" />
               </div>
               <div>
                 <span class="text-white font-extrabold text-xl tracking-tight block">PHOENIX</span>
