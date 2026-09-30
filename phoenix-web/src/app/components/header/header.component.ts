@@ -203,23 +203,7 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <div *ngIf="isMobileMenuOpen()" class="lg:hidden border-t border-slate-100 bg-white px-4 pt-4 pb-6 space-y-3 shadow-xl animate-fadeIn">
-        <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
-          <div class="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 p-1 flex items-center justify-center shrink-0">
-            <img src="favicon.svg" alt="Phoenix Emblem" class="w-full h-full object-contain" />
-          </div>
-          <div class="flex flex-col whitespace-nowrap">
-            <div class="flex items-center gap-2">
-              <span class="font-black text-lg tracking-tight text-slate-900">PHOENIX</span>
-              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[9px] font-black uppercase">
-                <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
-                TIRUPPUR
-              </span>
-            </div>
-            <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">LABELS, STICKERS &amp; PRINTING</span>
-          </div>
-        </div>
-
+      <div *ngIf="isMobileMenuOpen()" class="lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 space-y-2 shadow-xl animate-fadeIn">
         <a routerLink="/" (click)="closeMobileMenu()" 
            routerLinkActive="bg-blue-50 text-brand-blue font-bold"
            [routerLinkActiveOptions]="{exact: true}"
