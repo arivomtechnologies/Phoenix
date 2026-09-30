@@ -7,122 +7,108 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule, RouterLinkActive],
   template: `
-    <!-- Top Live Production Radar (FillTrip Theme) -->
-    <div class="bg-brand-navy text-slate-300 text-xs py-2 px-4 border-b border-slate-800 hidden sm:block overflow-hidden">
-      <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-        <div class="flex items-center gap-2 shrink-0">
-          <span class="inline-flex items-center gap-1.5 font-bold uppercase tracking-wider text-amber-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            LIVE PRODUCTION RADAR:
-          </span>
-        </div>
-
-        <div class="flex items-center gap-3 overflow-x-auto no-scrollbar whitespace-nowrap text-[11px]">
-          <span class="bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700/80 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            <strong class="text-white">Silicone 3D Unit:</strong> Active &bull; 48-hr Batch Ready
-          </span>
-
-          <span class="text-slate-500">&bull;</span>
-          <span class="text-slate-300 font-medium">
-            Tiruppur Hub <span class="text-amber-400">&harr;</span> Global Dispatch:
-            <span class="text-emerald-400 font-bold">100K Pcs / Day</span>
-          </span>
-
-          <span class="text-slate-500">&bull;</span>
-          <span class="bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700/80 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-            <strong class="text-white">DTF Line:</strong> 24h Proofing Active
-          </span>
-
-          <span class="text-slate-500">&bull;</span>
-          <span class="text-slate-300 font-medium">
-            Woven Looms: <span class="text-emerald-400 font-bold">&check; Available Now</span>
-          </span>
-        </div>
-
-        <div class="flex items-center gap-3 shrink-0 text-slate-400 font-medium">
-          <a href="tel:9944107633" class="hover:text-white transition flex items-center gap-1">
-            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-            +91 9944107633
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Main Navigation Bar (FillTrip Theme) -->
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 transition-all duration-200">
+    <!-- ========================================================================= -->
+    <!-- 1. MAIN NAVIGATION BAR (FILLTRIP THEME - TOP OF SCREEN)                   -->
+    <!-- ========================================================================= -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/80 transition-all duration-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           
-          <!-- Brand Logo & Motto -->
-          <a routerLink="/" class="flex items-center gap-3 group">
-            <img src="images/print/logo.jpeg" alt="Phoenix Labels Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105" />
+          <!-- Brand Logo & Label Design Lockup -->
+          <a routerLink="/" class="flex items-center gap-3.5 group">
+            
+            <!-- Crisp CMYK Printing Butterfly Emblem -->
+            <div class="w-11 h-11 rounded-2xl bg-white shadow-sm border border-slate-200/80 p-1.5 flex items-center justify-center shrink-0 group-hover:border-brand-orange/40 transition-colors">
+              <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Antennae -->
+                <path d="M48 38 C45 28, 38 22, 34 20" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M52 38 C55 28, 62 22, 66 20" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+                
+                <!-- Cyan Top Petal (CMYK Cyan) -->
+                <path d="M50 48 C42 36, 42 22, 50 14 C58 22, 58 36, 50 48 Z" fill="#00a8e8"/>
+                
+                <!-- Yellow Right Petal (CMYK Yellow) -->
+                <path d="M52 50 C64 42, 78 42, 86 50 C78 58, 64 58, 52 50 Z" fill="#facc15"/>
+                
+                <!-- Magenta Bottom Petal (CMYK Magenta) -->
+                <path d="M50 52 C58 64, 58 78, 50 86 C42 78, 42 64, 50 52 Z" fill="#e11d48"/>
+                
+                <!-- Black / Charcoal Left Petal (CMYK Key/Black) -->
+                <path d="M48 50 C36 58, 22 58, 14 50 C22 42, 36 42, 48 50 Z" fill="#1e293b"/>
+                
+                <!-- Center Core Dot -->
+                <circle cx="50" cy="50" r="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <!-- Typography & Tiruppur Badge -->
             <div class="flex flex-col">
-              <div class="flex items-center gap-1.5">
-                <span class="font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
+              <div class="flex items-center gap-2">
+                <span class="font-black text-2xl tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
                   PHOENIX
                 </span>
-                <span class="text-[10px] font-semibold tracking-widest text-slate-400 uppercase hidden lg:inline">
-                  &bull; Tiruppur
+                <span class="px-2 py-0.5 text-[9px] font-black tracking-widest rounded-md bg-slate-100 text-slate-600 uppercase border border-slate-200">
+                  TIRUPPUR
                 </span>
               </div>
-              <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
-                Labels, Stickers &amp; Printing
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block -mt-0.5">
+                LABELS, STICKERS &amp; PRINTING
               </span>
             </div>
           </a>
 
-          <!-- Centered Navigation Links (FillTrip Pill Style) -->
-          <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <!-- Centered Navigation Links (FillTrip Style with Active Underline) -->
+          <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 h-full">
+            
             <a routerLink="/" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
                [routerLinkActiveOptions]="{exact: true}"
-               class="relative px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
+               class="relative h-20 flex items-center px-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               Home
             </a>
             
             <a routerLink="/capabilities" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
+               class="relative h-20 flex items-center px-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               Capabilities
             </a>
 
+            <!-- Portfolio Link with Refined Pill Badge (No Wrapping) -->
             <a routerLink="/portfolio" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-1.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
-              Portfolio
-              <span class="px-1.5 py-0.5 text-[10px] font-bold rounded bg-amber-100 text-amber-800 uppercase tracking-tight">30 Photos</span>
+               class="relative h-20 flex items-center px-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
+              <span>Portfolio</span>
+              <span class="ml-1.5 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-full bg-amber-100 text-amber-800 border border-amber-300/60 whitespace-nowrap inline-flex items-center shrink-0">
+                30 Samples
+              </span>
             </a>
 
             <a routerLink="/quality" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
+               class="relative h-20 flex items-center px-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               Factory &amp; Quality
             </a>
 
             <a routerLink="/contact-us" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
+               class="relative h-20 flex items-center px-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               Contact &amp; Support
             </a>
           </nav>
 
           <!-- Right Action Buttons (FillTrip High-Contrast Design) -->
           <div class="hidden sm:flex items-center gap-3">
-            <a href="tel:9944107633" class="px-4 py-2 text-sm font-semibold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors flex items-center gap-2">
+            <a href="tel:9944107633" class="px-4 py-2.5 text-sm font-bold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors flex items-center gap-2">
               <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
               <span>Call Factory</span>
             </a>
 
-            <a routerLink="/contact-us" class="px-5 py-2.5 text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-md shadow-orange-500/20 hover:shadow-orange-500/30 transition-all flex items-center gap-2 group">
+            <a routerLink="/contact-us" class="px-5 py-2.5 text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 transition-all flex items-center gap-2 group">
               <span>Request Samples</span>
               <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
               </svg>
             </a>
           </div>
@@ -162,7 +148,7 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
            routerLinkActive="bg-blue-50 text-brand-blue font-bold"
            class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 transition flex items-center justify-between">
           <span>Portfolio Showcase</span>
-          <span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-100 text-amber-800">30 Photos</span>
+          <span class="px-2 py-0.5 text-xs font-bold rounded-full bg-amber-100 text-amber-800">30 Samples</span>
         </a>
         <a routerLink="/quality" (click)="closeMobileMenu()" 
            routerLinkActive="bg-blue-50 text-brand-blue font-bold"
@@ -185,16 +171,159 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
         </div>
       </div>
     </header>
-  `,
-  styles: [`
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  `]
+
+    <!-- ========================================================================= -->
+    <!-- 2. LIVE PRODUCTION RADAR: CONTINUOUS HORIZONTALLY MOVING MARQUEE TICKER    -->
+    <!-- (Directly Below Navbar - Matching FillTrip Live Corridor Radar)            -->
+    <!-- ========================================================================= -->
+    <div class="bg-brand-navy text-slate-300 text-xs py-2.5 border-b border-slate-800 overflow-hidden relative shadow-sm">
+      <div class="max-w-7xl mx-auto flex items-center">
+        
+        <!-- Pinned Static Label on Left with Pulsing Green Ping -->
+        <div class="shrink-0 bg-brand-navy z-20 px-4 sm:px-6 flex items-center gap-2 border-r border-slate-800 shadow-[4px_0_12px_rgba(15,23,42,0.9)]">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="font-black uppercase tracking-wider text-amber-400 text-[11px] whitespace-nowrap">
+            LIVE PRODUCTION RADAR:
+          </span>
+        </div>
+
+        <!-- Marquee Viewport with Infinite Seamless Scrolling Animation -->
+        <div class="overflow-hidden flex-1 relative cursor-pointer" title="Hover to pause radar">
+          <div class="animate-marquee flex items-center gap-8 whitespace-nowrap text-[11px]">
+            
+            <!-- MARQUEE SET 1 -->
+            <div class="flex items-center gap-6">
+              
+              <!-- Item 1: Silicone -->
+              <div class="flex items-center gap-2">
+                <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🟢 18 Lines Running
+                </span>
+                <span class="text-slate-200 font-bold">₹3.50 / Pc</span>
+                <span class="text-amber-400 font-semibold">• 48h Batch Ready</span>
+                <span class="text-white font-medium">Silicone 3D Unit</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 2: Dispatch Corridor -->
+              <div class="flex items-center gap-2">
+                <span class="text-slate-300 font-medium">Tiruppur Hub <span class="text-amber-400 font-bold">&harr;</span> Global Dispatch:</span>
+                <span class="text-emerald-400 font-extrabold bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700">100K Pcs / Day</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 3: DTF Digital Line -->
+              <div class="flex items-center gap-2">
+                <span class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🔵 DTF Line Active
+                </span>
+                <span class="text-slate-200 font-bold">2400 DPI CMYK+W</span>
+                <span class="text-cyan-400 font-semibold">• 24h Proofing SLA</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 4: Damask Looms -->
+              <div class="flex items-center gap-2">
+                <span class="bg-amber-500/15 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🟡 Looms Available
+                </span>
+                <span class="text-white font-medium">Damask Woven Labels</span>
+                <span class="text-emerald-400 font-bold">• 0 Setup Sampling</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 5: Quality Testing Benchmark -->
+              <div class="flex items-center gap-2">
+                <span class="bg-purple-500/15 text-purple-300 border border-purple-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🟣 QC Lab Verified
+                </span>
+                <span class="text-slate-300 font-medium">OEKO-TEX Std 100</span>
+                <span class="text-amber-400 font-semibold">• 50+ Industrial Wash Grade</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+            </div>
+
+            <!-- MARQUEE SET 2 (EXACT DUPLICATE FOR INFINITE SEAMLESS LOOP) -->
+            <div class="flex items-center gap-6" aria-hidden="true">
+              
+              <!-- Item 1: Silicone -->
+              <div class="flex items-center gap-2">
+                <span class="bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🟢 18 Lines Running
+                </span>
+                <span class="text-slate-200 font-bold">₹3.50 / Pc</span>
+                <span class="text-amber-400 font-semibold">• 48h Batch Ready</span>
+                <span class="text-white font-medium">Silicone 3D Unit</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 2: Dispatch Corridor -->
+              <div class="flex items-center gap-2">
+                <span class="text-slate-300 font-medium">Tiruppur Hub <span class="text-amber-400 font-bold">&harr;</span> Global Dispatch:</span>
+                <span class="text-emerald-400 font-extrabold bg-slate-800/80 px-2 py-0.5 rounded-full border border-slate-700">100K Pcs / Day</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 3: DTF Digital Line -->
+              <div class="flex items-center gap-2">
+                <span class="bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🔵 DTF Line Active
+                </span>
+                <span class="text-slate-200 font-bold">2400 DPI CMYK+W</span>
+                <span class="text-cyan-400 font-semibold">• 24h Proofing SLA</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 4: Damask Looms -->
+              <div class="flex items-center gap-2">
+                <span class="bg-amber-500/15 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🟡 Looms Available
+                </span>
+                <span class="text-white font-medium">Damask Woven Labels</span>
+                <span class="text-emerald-400 font-bold">• 0 Setup Sampling</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+
+              <!-- Item 5: Quality Testing Benchmark -->
+              <div class="flex items-center gap-2">
+                <span class="bg-purple-500/15 text-purple-300 border border-purple-500/30 px-2.5 py-0.5 rounded-full font-bold">
+                  🟣 QC Lab Verified
+                </span>
+                <span class="text-slate-300 font-medium">OEKO-TEX Std 100</span>
+                <span class="text-amber-400 font-semibold">• 50+ Industrial Wash Grade</span>
+              </div>
+
+              <span class="text-slate-600 font-bold">&bull;</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Quick Phone Shortcut (Hidden on small screens) -->
+        <div class="hidden xl:flex items-center gap-2 shrink-0 bg-brand-navy z-20 px-4 border-l border-slate-800 text-slate-300 shadow-[-4px_0_12px_rgba(15,23,42,0.9)]">
+          <a href="tel:9944107633" class="hover:text-white transition flex items-center gap-1.5 font-bold text-[11px]">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span>+91 9944107633</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  `
 })
 export class HeaderComponent {
   isMobileMenuOpen = signal(false);
