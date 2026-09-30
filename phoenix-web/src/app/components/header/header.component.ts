@@ -11,39 +11,74 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
     <!-- 1. MAIN NAVIGATION BAR (FILLTRIP THEME - TOP OF SCREEN)                   -->
     <!-- All elements strictly single-line (whitespace-nowrap & shrink-0)         -->
     <!-- ========================================================================= -->
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/80 transition-all duration-200">
+    <!-- ========================================================================= -->
+    <!-- 1. MAIN NAVIGATION BAR (FILLTRIP THEME - TOP OF SCREEN)                   -->
+    <!-- All elements strictly single-line (whitespace-nowrap & shrink-0)         -->
+    <!-- ========================================================================= -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/90 transition-all duration-200">
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20 gap-4">
           
-          <!-- Brand Logo & Label Lockup (Strictly Single-Line & Shrink-0) -->
-          <a routerLink="/" class="flex items-center gap-3 group shrink-0 select-none">
+          <!-- Brand Logo & Label Lockup (Redesigned CMYK Emblem, Company Name & Tags) -->
+          <a routerLink="/" class="flex items-center gap-3.5 group shrink-0 select-none">
             
-            <!-- Crisp CMYK Printing Butterfly Emblem -->
-            <div class="w-11 h-11 rounded-2xl bg-white shadow-sm border border-slate-200/90 p-1.5 flex items-center justify-center shrink-0 group-hover:border-brand-orange/40 transition-colors">
-              <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Antennae -->
-                <path d="M48 38 C45 28, 38 22, 34 20" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M52 38 C55 28, 62 22, 66 20" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Redesigned High-Definition CMYK Printing Butterfly Emblem -->
+            <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/90 p-1.5 flex items-center justify-center shrink-0 group-hover:border-brand-orange/40 group-hover:shadow-md transition-all duration-300">
+              <svg class="w-full h-full transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Vibrant CMYK Gradients -->
+                  <linearGradient id="cyanWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8"/>
+                    <stop offset="100%" stop-color="#0284c7"/>
+                  </linearGradient>
+                  <linearGradient id="yellowWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fde047"/>
+                    <stop offset="100%" stop-color="#eab308"/>
+                  </linearGradient>
+                  <linearGradient id="magentaWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f43f5e"/>
+                    <stop offset="100%" stop-color="#be123c"/>
+                  </linearGradient>
+                  <linearGradient id="blackWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#334155"/>
+                    <stop offset="100%" stop-color="#0f172a"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Soft Circular Emblem Ring -->
+                <circle cx="50" cy="50" r="46" stroke="#f1f5f9" stroke-width="2.5" fill="#f8fafc"/>
                 
-                <!-- Cyan Top Petal -->
-                <path d="M50 48 C42 36, 42 22, 50 14 C58 22, 58 36, 50 48 Z" fill="#00a8e8"/>
+                <!-- Fluid Antennae Arcs with Terminals -->
+                <path d="M47 38 C43 27, 35 21, 28 20" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="28" cy="20" r="2" fill="#0f172a"/>
+
+                <path d="M53 38 C57 27, 65 21, 72 20" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="72" cy="20" r="2" fill="#0f172a"/>
+
+                <!-- Top Cyan Wing (Smooth Bezier) -->
+                <path d="M50 47 C40 33, 36 17, 50 13 C64 17, 60 33, 50 47 Z" fill="url(#cyanWingGrad)"/>
                 
-                <!-- Yellow Right Petal -->
-                <path d="M52 50 C64 42, 78 42, 86 50 C78 58, 64 58, 52 50 Z" fill="#facc15"/>
+                <!-- Right Yellow Wing -->
+                <path d="M53 50 C67 40, 83 36, 87 50 C83 64, 67 60, 53 50 Z" fill="url(#yellowWingGrad)"/>
                 
-                <!-- Magenta Bottom Petal -->
-                <path d="M50 52 C58 64, 58 78, 50 86 C42 78, 42 64, 50 52 Z" fill="#e11d48"/>
+                <!-- Bottom Magenta Wing -->
+                <path d="M50 53 C60 67, 56 83, 50 87 C44 83, 40 67, 50 53 Z" fill="url(#magentaWingGrad)"/>
                 
-                <!-- Black Left Petal -->
-                <path d="M48 50 C36 58, 22 58, 14 50 C22 42, 36 42, 48 50 Z" fill="#1e293b"/>
+                <!-- Left Black/Carbon Wing -->
+                <path d="M47 50 C33 60, 17 64, 13 50 C17 36, 33 40, 47 50 Z" fill="url(#blackWingGrad)"/>
                 
-                <!-- Center Core Dot -->
-                <circle cx="50" cy="50" r="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+                <!-- Base Ink Ripple (Print Press Impression) -->
+                <ellipse cx="50" cy="89" rx="10" ry="2" fill="#cbd5e1" opacity="0.6"/>
+
+                <!-- Center Precision Core Dot -->
+                <circle cx="50" cy="50" r="5" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+                <circle cx="50" cy="50" r="2.2" fill="#f97316"/>
               </svg>
             </div>
 
-            <!-- Typography & Tiruppur Badge -->
+            <!-- Company Name & Tags Lockup -->
             <div class="flex flex-col whitespace-nowrap">
+              <!-- Row 1: Company Name + Tiruppur Badge -->
               <div class="flex items-center gap-2">
                 <span class="font-black text-xl sm:text-2xl tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
                   PHOENIX
@@ -52,15 +87,18 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
                   TIRUPPUR
                 </span>
               </div>
+
+              <!-- Row 2: Subtitle -->
               <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block -mt-0.5">
                 LABELS, STICKERS &amp; PRINTING
               </span>
             </div>
           </a>
 
-          <!-- Centered Navigation Links (Strictly Single-Line with FillTrip Active Underline) -->
+          <!-- Centered Navigation Links (Strictly matching user design from media_1790765922477.png) -->
           <nav class="hidden lg:flex items-center space-x-1 xl:space-x-3 h-full shrink-0">
             
+            <!-- Home -->
             <a routerLink="/" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
                [routerLinkActiveOptions]="{exact: true}"
@@ -68,30 +106,31 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
               Home
             </a>
             
+            <!-- Capabilities -->
             <a routerLink="/capabilities" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
                class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               Capabilities
             </a>
 
-            <!-- Portfolio Link with Single-Line Pill Badge -->
+            <!-- Portfolio with 30 SAMPLES Tag -->
             <a routerLink="/portfolio" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
                class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               <span>Portfolio</span>
               <span class="ml-1.5 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-full bg-amber-100 text-amber-800 border border-amber-300/60 whitespace-nowrap inline-flex items-center shrink-0">
-                30 Samples
+                30 SAMPLES
               </span>
             </a>
 
-            <!-- Factory & Quality (Strictly Single-Line) -->
+            <!-- Factory & Quality -->
             <a routerLink="/quality" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
                class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
               Factory &amp; Quality
             </a>
 
-            <!-- Contact & Support (Strictly Single-Line) -->
+            <!-- Contact & Support -->
             <a routerLink="/contact-us" 
                routerLinkActive="text-brand-blue font-bold after:w-full"
                class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
@@ -99,21 +138,21 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
             </a>
           </nav>
 
-          <!-- Right Action Buttons (Strictly Single-Line & Shrink-0) -->
+          <!-- Right Action Buttons (Strictly Single-Line & High-Contrast FillTrip Style) -->
           <div class="hidden sm:flex items-center gap-2.5 xl:gap-3 shrink-0">
             
             <!-- Call Factory Button -->
             <a href="tel:9944107633" 
-               class="whitespace-nowrap px-3.5 xl:px-4 py-2 xl:py-2.5 text-xs xl:text-sm font-bold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors inline-flex items-center gap-2 shrink-0">
+               class="whitespace-nowrap px-4 py-2.5 text-xs xl:text-sm font-bold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all inline-flex items-center gap-2 shrink-0">
               <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
               <span>Call Factory</span>
             </a>
 
-            <!-- Request Samples Button -->
+            <!-- High-Contrast Orange Pill Button (FillTrip Primary CTA Style) -->
             <a routerLink="/contact-us" 
-               class="whitespace-nowrap px-4 xl:px-5 py-2 xl:py-2.5 text-xs xl:text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 transition-all inline-flex items-center gap-1.5 xl:gap-2 shrink-0 group">
+               class="whitespace-nowrap px-5 py-2.5 text-xs xl:text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 active:scale-95 rounded-full shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 transition-all inline-flex items-center gap-2 shrink-0 group">
               <span>Request Samples</span>
               <svg class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
