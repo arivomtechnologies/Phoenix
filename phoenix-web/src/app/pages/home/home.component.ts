@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -461,29 +461,133 @@ import { FormsModule } from '@angular/forms';
       </div>
     </section>
 
-    <!-- Modal for Quick Photo Inspection -->
-    <div *ngIf="selectedSample()" 
-         class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+    <!-- ========================================================================= -->
+    <!-- 7. FULL-SCREEN LIGHTBOX MODAL WITH CLICK-TO-ZOOM & FIXED CANCEL BUTTON    -->
+    <!-- ========================================================================= -->
+    <div *ngIf="currentSample()" 
+         class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-6 select-none animate-fadeIn"
          (click)="closeSampleModal()">
-      <div class="relative max-w-xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-700 p-3 shadow-2xl" (click)="$event.stopPropagation()">
-        <img [src]="'images/gallery/' + selectedSample()" alt="Enlarged Sample" class="w-full h-auto rounded-2xl" />
-        <div class="p-4 flex items-center justify-between text-white">
-          <span class="text-sm font-bold">Phoenix Production Sample: {{ selectedSample() }}</span>
-          <button (click)="closeSampleModal()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-300">
+      
+      <!-- Top Fixed Header Bar (Always Visible at Top of Viewport) -->
+      <div class="relative z-50 flex items-center justify-between w-full max-w-6xl mx-auto py-1" (click)="$event.stopPropagation()">
+        
+        <!-- Left: Sample Counter Badge -->
+        <div class="flex items-center gap-3">
+          <span class="px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 font-extrabold text-xs border border-slate-700 shadow-md">
+            Sample #{{ (selectedSampleIndex()! + 1) }} of {{ allSamples.length }}
+          </span>
+          <span class="text-xs font-semibold text-slate-300 hidden sm:inline">
+            Phoenix Garment Accessories Archive
+          </span>
+        </div>
+
+        <!-- Center: Interactive Zoom Toolbar -->
+        <div class="flex items-center gap-1.5 bg-slate-900/95 px-3 py-1.5 rounded-full border border-slate-700/80 shadow-xl text-white text-xs">
+          <button (click)="zoomOut()" 
+                  type="button"
+                  [disabled]="zoomLevel() <= 1"
+                  class="p-1 hover:text-amber-400 disabled:opacity-30 disabled:hover:text-white transition" 
+                  title="Zoom Out">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg>
+          </button>
+          
+          <button (click)="toggleZoom()" 
+                  type="button"
+                  class="px-2 font-bold hover:text-amber-400 transition flex items-center gap-1" 
+                  title="Click to Toggle Zoom">
+            <span>{{ zoomLevel() }}x</span>
+            <span class="text-[10px] text-slate-400">{{ isZoomed() ? '(Click to Fit)' : '(Click to Zoom)' }}</span>
+          </button>
+
+          <button (click)="zoomIn()" 
+                  type="button"
+                  [disabled]="zoomLevel() >= 3"
+                  class="p-1 hover:text-amber-400 disabled:opacity-30 disabled:hover:text-white transition" 
+                  title="Zoom In">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+        </div>
+
+        <!-- Right: Prominent CANCEL / CLOSE Button (Impossible to Miss) -->
+        <button (click)="closeSampleModal()" 
+                type="button"
+                class="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-black text-xs shadow-2xl flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer"
+                aria-label="Cancel and Close Modal">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <span>Cancel &times;</span>
+        </button>
+
+      </div>
+
+      <!-- Main Center Stage with Click-To-Zoom Image -->
+      <div class="relative flex-1 flex items-center justify-center overflow-hidden my-2 sm:my-4" (click)="$event.stopPropagation()">
+        
+        <!-- Prev Arrow (Left) -->
+        <button (click)="prevSample($event)" 
+                type="button"
+                class="absolute left-2 sm:left-6 z-40 p-3 rounded-full bg-slate-900/85 hover:bg-slate-800 text-white border border-slate-700 hover:scale-110 transition shadow-2xl"
+                aria-label="Previous Sample">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <!-- Center Image: Click directly to Zoom in or out -->
+        <div class="relative max-h-[72vh] flex items-center justify-center transition-all duration-300"
+             [class.cursor-zoom-in]="!isZoomed()"
+             [class.cursor-zoom-out]="isZoomed()"
+             (click)="toggleZoom()"
+             title="Click directly to Zoom in / Zoom out">
+          <img [src]="'images/gallery/' + currentSample()" 
+               [alt]="'Phoenix Sample ' + currentSample()" 
+               class="max-h-[70vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl transition-transform duration-300 ease-out select-none border border-slate-800/80"
+               [style.transform]="'scale(' + zoomLevel() + ')'" />
+        </div>
+
+        <!-- Next Arrow (Right) -->
+        <button (click)="nextSample($event)" 
+                type="button"
+                class="absolute right-2 sm:right-6 z-40 p-3 rounded-full bg-slate-900/85 hover:bg-slate-800 text-white border border-slate-700 hover:scale-110 transition shadow-2xl"
+                aria-label="Next Sample">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+      </div>
+
+      <!-- Bottom Floating Instructions & Footer Bar -->
+      <div class="relative z-50 flex items-center justify-between w-full max-w-4xl mx-auto px-4 py-2.5 bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-800 text-white text-xs shadow-xl" (click)="$event.stopPropagation()">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-slate-300 text-xs font-medium">Click photo directly to zoom &bull; Drag or use controls</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="text-slate-400 text-[11px] hidden sm:inline">Use &larr; &rarr; Keys &bull; Press ESC to Cancel</span>
+          <button (click)="closeSampleModal()" 
+                  type="button"
+                  class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition">
             Close &times;
           </button>
         </div>
       </div>
+
     </div>
   `
 })
 export class HomeComponent {
-  selectedSample = signal<string | null>(null);
+  selectedSampleIndex = signal<number | null>(null);
+  zoomLevel = signal(1);
+  isZoomed = signal(false);
   isGalleryPaused = signal(false);
 
   allSamples = Array.from({ length: 30 }, (_, i) => `${i + 1}.jpeg`);
   row1Samples = Array.from({ length: 15 }, (_, i) => `${i + 1}.jpeg`);
   row2Samples = Array.from({ length: 15 }, (_, i) => `${i + 16}.jpeg`);
+
+  currentSample = computed(() => {
+    const idx = this.selectedSampleIndex();
+    return idx !== null ? this.allSamples[idx] : null;
+  });
 
   capabilities = [
     { name: 'High-Density 3D Stickers', desc: 'Thick, dimensional rubberized graphics with sharp vertical walls for activewear.' },
@@ -509,15 +613,73 @@ export class HomeComponent {
     { name: 'Flock Velvety Transfers', desc: 'Dense synthetic fibers creating a luxurious velvet, soft-touch textile surface.' }
   ];
 
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (this.selectedSampleIndex() !== null) {
+      if (event.key === 'Escape') this.closeSampleModal();
+      if (event.key === 'ArrowLeft') this.prevSample();
+      if (event.key === 'ArrowRight') this.nextSample();
+    }
+  }
+
   toggleGalleryPause() {
     this.isGalleryPaused.update(v => !v);
   }
 
   openSampleModal(sample: string) {
-    this.selectedSample.set(sample);
+    const idx = this.allSamples.indexOf(sample);
+    this.selectedSampleIndex.set(idx >= 0 ? idx : 0);
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
   }
 
   closeSampleModal() {
-    this.selectedSample.set(null);
+    this.selectedSampleIndex.set(null);
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
+  }
+
+  toggleZoom() {
+    if (this.zoomLevel() === 1) {
+      this.zoomLevel.set(2);
+      this.isZoomed.set(true);
+    } else {
+      this.zoomLevel.set(1);
+      this.isZoomed.set(false);
+    }
+  }
+
+  zoomIn() {
+    this.zoomLevel.update(z => {
+      const next = Math.min(+(z + 0.5).toFixed(1), 3);
+      this.isZoomed.set(next > 1);
+      return next;
+    });
+  }
+
+  zoomOut() {
+    this.zoomLevel.update(z => {
+      const next = Math.max(+(z - 0.5).toFixed(1), 1);
+      this.isZoomed.set(next > 1);
+      return next;
+    });
+  }
+
+  prevSample(event?: Event) {
+    event?.stopPropagation();
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
+    this.selectedSampleIndex.update(idx => 
+      (idx === null || idx === 0) ? this.allSamples.length - 1 : idx - 1
+    );
+  }
+
+  nextSample(event?: Event) {
+    event?.stopPropagation();
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
+    this.selectedSampleIndex.update(idx => 
+      (idx === null || idx === this.allSamples.length - 1) ? 0 : idx + 1
+    );
   }
 }
