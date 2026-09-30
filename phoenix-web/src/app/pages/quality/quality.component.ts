@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div class="lg:col-span-6 space-y-5">
+          <div class="scroll-reveal-left lg:col-span-6 space-y-5">
             <span class="px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold uppercase tracking-wider">
               In-House Quality Control &bull; ISO Standards
             </span>
@@ -65,10 +65,10 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 relative group hover-lift hover:shadow-2xl transition-all duration-300">
+          <div class="scroll-reveal-right lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 relative group hover-lift hover:shadow-2xl transition-all duration-300 image-reveal">
               <img src="images/ai/quality_testing_lab.jpg" alt="Textile Quality Testing Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px]">
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px] z-20">
                 <div>
                   <span class="text-amber-400 font-bold block text-[11px] uppercase tracking-wider">Durability Benchmarking</span>
                   <span class="text-slate-300">ISO 105-C06 / AATCC 61 4A Launder-Ometer Suite</span>
@@ -87,10 +87,10 @@ import { RouterModule } from '@angular/router';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div class="lg:col-span-6 order-2 lg:order-1">
-            <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-800 aspect-[16/10] bg-slate-950 relative group hover-lift transition-all duration-300">
+          <div class="scroll-reveal-left lg:col-span-6 order-2 lg:order-1">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-800 aspect-[16/10] bg-slate-950 relative group hover-lift transition-all duration-300 image-reveal">
               <img src="images/ai/spectrophotometer_color_lab.jpg" alt="Spectrophotometer Color Matching Lab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px]">
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px] z-20">
                 <div>
                   <span class="text-cyan-400 font-bold block text-[11px] uppercase tracking-wider">Digital Chromatic Accuracy</span>
                   <span class="text-slate-300">X-Rite Digital Spectrophotometer &bull; D65 Daylight</span>
@@ -100,7 +100,7 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6 space-y-5 order-1 lg:order-2">
+          <div class="scroll-reveal-right lg:col-span-6 space-y-5 order-1 lg:order-2">
             <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold uppercase tracking-wider">
               Spectrophotometer Color Matching
             </span>
@@ -146,14 +146,14 @@ import { RouterModule } from '@angular/router';
     <section class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+        <div class="scroll-reveal text-center max-w-2xl mx-auto space-y-3 mb-16">
           <span class="text-brand-orange text-xs font-bold uppercase tracking-wider">Our Commitment</span>
           <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">The 4 Pillars of Phoenix Service</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
+          <div class="scroll-reveal stagger-1 bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
             <div class="w-10 h-10 rounded-2xl bg-blue-100 text-brand-blue flex items-center justify-center font-bold text-lg group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
               1
             </div>
@@ -163,7 +163,7 @@ import { RouterModule } from '@angular/router';
             </p>
           </div>
 
-          <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
+          <div class="scroll-reveal stagger-2 bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
             <div class="w-10 h-10 rounded-2xl bg-blue-100 text-brand-blue flex items-center justify-center font-bold text-lg group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
               2
             </div>
@@ -173,7 +173,7 @@ import { RouterModule } from '@angular/router';
             </p>
           </div>
 
-          <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
+          <div class="scroll-reveal stagger-3 bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
             <div class="w-10 h-10 rounded-2xl bg-blue-100 text-brand-blue flex items-center justify-center font-bold text-lg group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
               3
             </div>
@@ -183,7 +183,7 @@ import { RouterModule } from '@angular/router';
             </p>
           </div>
 
-          <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
+          <div class="scroll-reveal stagger-4 bg-white p-6 rounded-3xl shadow-card border border-slate-100 space-y-3 hover-lift hover:shadow-xl hover:border-blue-200 transition-all duration-300 group cursor-default">
             <div class="w-10 h-10 rounded-2xl bg-blue-100 text-brand-blue flex items-center justify-center font-bold text-lg group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
               4
             </div>

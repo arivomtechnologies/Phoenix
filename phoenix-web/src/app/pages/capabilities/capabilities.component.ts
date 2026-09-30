@@ -28,7 +28,7 @@ import { RouterModule } from '@angular/router';
         
         <!-- Technology 1: 3D Silicone Printing -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-6 space-y-5">
+          <div class="scroll-reveal-left lg:col-span-6 space-y-5">
             <span class="px-3 py-1 rounded-full bg-rose-100 text-brand-magenta text-xs font-bold uppercase tracking-wider">
               High-Performance Activewear
             </span>
@@ -51,8 +51,8 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300">
+          <div class="scroll-reveal-right lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300 image-reveal">
               <img src="images/ai/hero_silicone_apparel.jpg" alt="Silicone 3D Transfer Detail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           </div>
@@ -60,7 +60,7 @@ import { RouterModule } from '@angular/router';
 
         <!-- Technology 2: DTF Digital Transfer Printing -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-6 lg:order-2 space-y-5">
+          <div class="scroll-reveal-right lg:col-span-6 lg:order-2 space-y-5">
             <span class="px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold uppercase tracking-wider">
               Photorealistic Digital CMYK+W
             </span>
@@ -83,8 +83,8 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6 lg:order-1">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300">
+          <div class="scroll-reveal-left lg:col-span-6 lg:order-1">
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300 image-reveal">
               <img src="images/ai/dtf_printing_facility.jpg" alt="DTF Printing Line" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           </div>
@@ -92,7 +92,7 @@ import { RouterModule } from '@angular/router';
 
         <!-- Technology 3: Woven Labels & Heritage Leather Trims -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-6 space-y-5">
+          <div class="scroll-reveal-left lg:col-span-6 space-y-5">
             <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
               Denim &amp; Knitwear Branding
             </span>
@@ -115,8 +115,8 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300">
+          <div class="scroll-reveal-right lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300 image-reveal">
               <img src="images/ai/luxury_woven_labels.jpg" alt="Woven and Leather Trims" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           </div>
@@ -124,7 +124,7 @@ import { RouterModule } from '@angular/router';
 
         <!-- Technology 4: Garment Embossing & Ultrasonic Seam Bonding -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-6 lg:order-2 space-y-5">
+          <div class="scroll-reveal-right lg:col-span-6 lg:order-2 space-y-5">
             <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
               Dimensional Relief &amp; Seam-Free Bonding
             </span>
@@ -147,8 +147,8 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6 lg:order-1">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300">
+          <div class="scroll-reveal-left lg:col-span-6 lg:order-1">
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300 image-reveal">
               <img src="images/ai/garment_embossing_sonic_weld.jpg" alt="Garment Embossing and Ultrasonic Seam Bonding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           </div>
@@ -156,7 +156,7 @@ import { RouterModule } from '@angular/router';
 
         <!-- Technology 5: Reflective & Prismatic Rainbow Transfers -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div class="lg:col-span-6 space-y-5">
+          <div class="scroll-reveal-left lg:col-span-6 space-y-5">
             <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider">
               Night-Safety &amp; Dynamic Optics
             </span>
@@ -179,8 +179,8 @@ import { RouterModule } from '@angular/router';
             </div>
           </div>
 
-          <div class="lg:col-span-6">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300">
+          <div class="scroll-reveal-right lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 group hover-lift hover:shadow-2xl transition-all duration-300 image-reveal">
               <img src="images/ai/reflective_iridescent_activewear.jpg" alt="Reflective Activewear Transfer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           </div>
@@ -192,9 +192,9 @@ import { RouterModule } from '@angular/router';
     <!-- Technical Parameters Table -->
     <section class="py-16 bg-slate-50 border-t border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h3 class="text-2xl font-extrabold text-slate-900 mb-6 text-center">Comprehensive Heat Press &amp; Application Guidelines</h3>
+        <h3 class="scroll-reveal text-2xl font-extrabold text-slate-900 mb-6 text-center">Comprehensive Heat Press &amp; Application Guidelines</h3>
         
-        <div class="bg-white rounded-3xl shadow-card border border-slate-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        <div class="scroll-reveal bg-white rounded-3xl shadow-card border border-slate-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs sm:text-sm text-slate-600">
               <thead class="bg-slate-900 text-white text-xs uppercase tracking-wider">

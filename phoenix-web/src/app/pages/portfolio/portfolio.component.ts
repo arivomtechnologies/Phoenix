@@ -42,9 +42,10 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          <div *ngFor="let item of filteredSamples()"
+          <div *ngFor="let item of filteredSamples(); let i = index"
                (click)="openLightbox(item)"
-               class="group relative rounded-3xl overflow-hidden bg-white shadow-card border border-slate-200/80 cursor-pointer aspect-square hover-lift hover:shadow-2xl hover:border-slate-300 transition-all duration-300">
+               class="scroll-reveal image-reveal group relative rounded-3xl overflow-hidden bg-white shadow-card border border-slate-200/80 cursor-pointer aspect-square hover-lift hover:shadow-2xl hover:border-slate-300 transition-all duration-300"
+               [ngClass]="'stagger-' + ((i % 4) + 1)">
             
             <img [src]="'images/gallery/' + item.filename" 
                  [alt]="item.title" 

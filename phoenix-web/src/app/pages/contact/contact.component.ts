@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           <!-- Left: Contact Form -->
-          <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-card border border-slate-200 animate-fade-in-up delay-300">
+          <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-card border border-slate-200 scroll-reveal-left">
             <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Request Swatch Pack or Quote</h2>
             <p class="text-slate-600 text-xs sm:text-sm mb-8">
               Fill in your requirement below. Our merchandising team will respond within 2-4 business hours.
@@ -109,7 +109,7 @@ import { FormsModule } from '@angular/forms';
           </div>
 
           <!-- Right: Contact Cards & Info -->
-          <div class="lg:col-span-5 space-y-6 animate-fade-in-scale delay-200">
+          <div class="lg:col-span-5 space-y-6 scroll-reveal-right">
             
             <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-200 space-y-4">
               <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
@@ -178,7 +178,7 @@ import { FormsModule } from '@angular/forms';
         <div class="mt-16 bg-white rounded-3xl p-8 sm:p-10 shadow-card border border-slate-200">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div class="lg:col-span-6 space-y-4">
+            <div class="lg:col-span-6 space-y-4 scroll-reveal-left">
               <span class="px-3.5 py-1.5 rounded-full bg-orange-100 text-brand-orange text-xs font-bold uppercase tracking-wider inline-block">
                 Tiruppur Innovation Hub
               </span>
@@ -215,8 +215,8 @@ import { FormsModule } from '@angular/forms';
               </div>
             </div>
 
-            <div class="lg:col-span-6">
-              <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 relative group">
+            <div class="lg:col-span-6 scroll-reveal-right">
+              <div class="image-reveal rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 relative group">
                 <img src="images/ai/factory_showroom_swatch_desk.jpg" alt="Phoenix Tiruppur Merchandising Showroom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div class="absolute bottom-3 left-3 right-3 bg-slate-950/80 backdrop-blur-md p-3 rounded-2xl border border-slate-700/50 text-white text-xs flex items-center justify-between">
                   <span class="font-bold text-amber-300">Merchandiser Discussion Desk</span>
@@ -229,7 +229,7 @@ import { FormsModule } from '@angular/forms';
         </div>
 
         <!-- Google Maps Responsive Embed -->
-        <div class="mt-12 rounded-3xl overflow-hidden shadow-card border border-slate-200">
+        <div class="scroll-reveal mt-12 rounded-3xl overflow-hidden shadow-card border border-slate-200">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15658.079030908575!2d77.30891699578227!3d11.149100077224615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba906919dea807b%3A0xbab2ebf05d75a8f1!2sAnupparpalayam%20Pudur%2C%20Tiruppur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1691431436089!5m2!1sen!2sin" 
             width="100%" 

@@ -87,13 +87,13 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
               </div>
 
               <!-- Main Hero Image (AI-Generated 3D Silicone Apparel) -->
-              <div class="relative rounded-2xl overflow-hidden shadow-inner aspect-[16/10] bg-slate-900">
+              <div class="relative rounded-2xl overflow-hidden shadow-inner aspect-[16/10] bg-slate-900 image-reveal in-view">
                 <img src="images/ai/hero_silicone_apparel.jpg" 
                      alt="High-Density 3D Silicone Printing on Apparel" 
                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 
                 <!-- Floating Overlay Glassmorphic Badge -->
-                <div class="absolute bottom-3 left-3 right-3 bg-slate-900/85 backdrop-blur-md p-3 rounded-xl border border-white/10 text-white flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px]">
+                <div class="absolute bottom-3 left-3 right-3 bg-slate-900/85 backdrop-blur-md p-3 rounded-xl border border-white/10 text-white flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px] z-20">
                   <div>
                     <span class="text-[10px] uppercase font-bold tracking-wider text-amber-400 block">Matched Batch Run</span>
                     <span class="text-xs font-bold text-white block">3D Silicone Heat Transfer &bull; 25,000 Pcs</span>
@@ -137,22 +137,22 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
           
-          <div class="space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
+          <div class="scroll-reveal stagger-1 space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
             <span class="text-3xl sm:text-4xl font-extrabold text-amber-400 block tracking-tight">10+ Years</span>
             <span class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider block">Tiruppur Hub Leadership</span>
           </div>
 
-          <div class="space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
+          <div class="scroll-reveal stagger-2 space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
             <span class="text-3xl sm:text-4xl font-extrabold text-white block tracking-tight">100,000+</span>
             <span class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider block">Pieces Daily Output</span>
           </div>
 
-          <div class="space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
+          <div class="scroll-reveal stagger-3 space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
             <span class="text-3xl sm:text-4xl font-extrabold text-emerald-400 block tracking-tight">24 Hours</span>
             <span class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider block">Digital Proofing SLA</span>
           </div>
 
-          <div class="space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
+          <div class="scroll-reveal stagger-4 space-y-1 p-3 rounded-2xl hover:bg-slate-800/60 transition-all duration-300 hover-lift-sm cursor-default">
             <span class="text-3xl sm:text-4xl font-extrabold text-cyan-400 block tracking-tight">99.8%</span>
             <span class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider block">Color Accuracy Rate</span>
           </div>
@@ -167,7 +167,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
     <section class="py-16 sm:py-24 bg-slate-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <div class="scroll-reveal text-center max-w-3xl mx-auto space-y-3 mb-16">
           <span class="px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold uppercase tracking-wider">
             Industrial Excellence
           </span>
@@ -182,10 +182,10 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           <!-- Card 1: 3D Silicone Heat Transfer -->
-          <div class="bg-white rounded-3xl overflow-hidden shadow-card border border-slate-100 flex flex-col group hover-lift hover:shadow-2xl hover:border-slate-200 transition-all duration-300">
-            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+          <div class="scroll-reveal stagger-1 bg-white rounded-3xl overflow-hidden shadow-card border border-slate-100 flex flex-col group hover-lift hover:shadow-2xl hover:border-slate-200 transition-all duration-300">
+            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100 image-reveal">
               <img src="images/ai/hero_silicone_apparel.jpg" alt="Silicone 3D Printing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              <span class="absolute top-3 left-3 bg-brand-navy/90 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm group-hover:bg-brand-orange transition-colors duration-300">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm group-hover:bg-brand-orange transition-colors duration-300 z-20">
                 High-Density Silicone
               </span>
             </div>
@@ -204,10 +204,10 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
           </div>
 
           <!-- Card 2: DTF Digital Transfer Printing -->
-          <div class="bg-white rounded-3xl overflow-hidden shadow-card border border-slate-100 flex flex-col group hover-lift hover:shadow-2xl hover:border-slate-200 transition-all duration-300">
-            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+          <div class="scroll-reveal stagger-2 bg-white rounded-3xl overflow-hidden shadow-card border border-slate-100 flex flex-col group hover-lift hover:shadow-2xl hover:border-slate-200 transition-all duration-300">
+            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100 image-reveal">
               <img src="images/ai/dtf_printing_facility.jpg" alt="DTF Industrial Facility" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              <span class="absolute top-3 left-3 bg-brand-navy/90 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm group-hover:bg-brand-orange transition-colors duration-300">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm group-hover:bg-brand-orange transition-colors duration-300 z-20">
                 Direct-To-Film
               </span>
             </div>
@@ -226,10 +226,10 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
           </div>
 
           <!-- Card 3: Woven Labels & Leather Trims -->
-          <div class="bg-white rounded-3xl overflow-hidden shadow-card border border-slate-100 flex flex-col group hover-lift hover:shadow-2xl hover:border-slate-200 transition-all duration-300">
-            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+          <div class="scroll-reveal stagger-3 bg-white rounded-3xl overflow-hidden shadow-card border border-slate-100 flex flex-col group hover-lift hover:shadow-2xl hover:border-slate-200 transition-all duration-300">
+            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100 image-reveal">
               <img src="images/ai/luxury_woven_labels.jpg" alt="Woven and Leather Trims" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-              <span class="absolute top-3 left-3 bg-brand-navy/90 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm group-hover:bg-brand-orange transition-colors duration-300">
+              <span class="absolute top-3 left-3 bg-brand-navy/90 text-white text-[11px] font-bold px-3 py-1 rounded-full backdrop-blur-sm group-hover:bg-brand-orange transition-colors duration-300 z-20">
                 Luxury Trims
               </span>
             </div>
@@ -258,20 +258,20 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
     <section class="py-16 sm:py-24 bg-white border-t border-slate-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="scroll-reveal flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div class="space-y-2 max-w-xl">
             <span class="text-brand-orange font-bold text-xs uppercase tracking-wider">Full Production Catalog</span>
             <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">21+ Specialized Manufacturing Techniques</h2>
             <p class="text-slate-600 text-sm">Every technique calibrated for international wash resistance, softness, and vibrant aesthetic appeal.</p>
           </div>
-          <a routerLink="/contact-us" class="px-5 py-2.5 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition shrink-0 self-start md:self-auto">
+          <a routerLink="/contact-us" class="px-5 py-2.5 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition shrink-0 self-start md:self-auto hover-lift-sm">
             Download Tech Specs PDF &rarr;
           </a>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div *ngFor="let cap of capabilities; let idx = index" 
-               class="p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-blue-300 hover:shadow-md hover-lift-sm transition-all duration-300 flex items-start gap-3.5 group cursor-pointer">
+               [class]="'scroll-reveal stagger-' + ((idx % 6) + 1) + ' p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-blue-300 hover:shadow-md hover-lift-sm transition-all duration-300 flex items-start gap-3.5 group cursor-pointer'">
             <span class="w-7 h-7 rounded-xl bg-blue-100/80 text-brand-blue flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 group-hover:bg-brand-blue group-hover:text-white group-hover:scale-110 transition-all duration-300">
               {{ idx + 1 }}
             </span>
@@ -293,7 +293,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
       
       <!-- Section Header -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="scroll-reveal flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div class="space-y-3">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -325,7 +325,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
       </div>
 
       <!-- Marquee Wrapper with Edge Fade Gradients -->
-      <div class="relative w-full overflow-hidden space-y-5">
+      <div class="scroll-reveal relative w-full overflow-hidden space-y-5">
         
         <!-- Left & Right Gradient Vignettes -->
         <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-950 to-transparent z-20 pointer-events-none"></div>
@@ -345,11 +345,11 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30 transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30 transition-transform duration-300 group-hover:scale-105 z-20">
                 {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 z-20">
                 <span class="text-[10px] uppercase font-black text-amber-400 tracking-wider">{{ item.categoryLabel }}</span>
                 <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
                 <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
@@ -368,11 +368,11 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30 transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30 transition-transform duration-300 group-hover:scale-105 z-20">
                 {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 z-20">
                 <span class="text-[10px] uppercase font-black text-amber-400 tracking-wider">{{ item.categoryLabel }}</span>
                 <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
                 <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
@@ -398,11 +398,11 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30 transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30 transition-transform duration-300 group-hover:scale-105 z-20">
                 {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 z-20">
                 <span class="text-[10px] uppercase font-black text-cyan-300 tracking-wider">{{ item.categoryLabel }}</span>
                 <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
                 <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
@@ -421,11 +421,11 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30 transition-transform duration-300 group-hover:scale-105">
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30 transition-transform duration-300 group-hover:scale-105 z-20">
                 {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4 z-20">
                 <span class="text-[10px] uppercase font-black text-cyan-300 tracking-wider">{{ item.categoryLabel }}</span>
                 <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
                 <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
@@ -448,7 +448,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div class="lg:col-span-7 space-y-6">
+          <div class="scroll-reveal-left lg:col-span-7 space-y-6">
             <span class="px-3.5 py-1.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider inline-block">
               Complimentary For Apparel Buying Houses &amp; Exporters
             </span>
@@ -503,13 +503,13 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
             </div>
           </div>
 
-          <div class="lg:col-span-5">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group hover-lift transition-all duration-500">
+          <div class="scroll-reveal-right lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group hover-lift transition-all duration-500 image-reveal">
               <img src="images/ai/swatch_box_merchandiser_kit.jpg" alt="Phoenix Textile Swatch & Sample Box" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-700/60 text-white text-[11px] font-bold">
+              <div class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-700/60 text-white text-[11px] font-bold z-20">
                 <span class="text-amber-400">&starf;</span> 2026 EXPORT EDITION
               </div>
-              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px]">
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between transition-transform duration-300 group-hover:translate-y-[-2px] z-20">
                 <div>
                   <strong class="text-white block text-xs">Direct Merchandiser Dispatch</strong>
                   <span class="text-[11px] text-slate-400">Shipped within 24-48 Hours</span>
