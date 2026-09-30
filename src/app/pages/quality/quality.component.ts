@@ -22,20 +22,20 @@ import { RouterModule } from '@angular/router';
       </div>
     </section>
 
-    <!-- Lab Testing Section (with AI-Generated Image) -->
+    <!-- Lab Testing Section 1: Wash Fastness & Chemical Safety -->
     <section class="py-16 sm:py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div class="lg:col-span-6 space-y-5">
             <span class="px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold uppercase tracking-wider">
-              In-House Quality Control
+              In-House Quality Control &bull; ISO Standards
             </span>
             <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">
               Rigorous Laboratory Validation for Every Batch
             </h2>
             <p class="text-slate-600 text-sm leading-relaxed">
-              Every production lot undergoes comprehensive laboratory testing prior to dispatch. We evaluate Delta E color deviations under standardized daylight illuminants (D65/TL84), test tensile stretch recovery, and run accelerated industrial wash cycles.
+              Every production lot undergoes comprehensive laboratory testing prior to dispatch. We evaluate tensile stretch recovery, rub resistance, and accelerated industrial wash cycles to meet stringent US &amp; EU export criteria.
             </p>
 
             <div class="space-y-3 pt-2">
@@ -58,16 +58,83 @@ import { RouterModule } from '@angular/router';
               <div class="flex items-start gap-3">
                 <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">&check;</span>
                 <div>
-                  <strong class="text-xs text-slate-900 block font-bold">Spectrophotometer Precision</strong>
-                  <span class="text-xs text-slate-500">Exact Pantone matching ensuring seamless brand consistency across garments.</span>
+                  <strong class="text-xs text-slate-900 block font-bold">Martindale Abrasion &amp; Crockmeter Testing</strong>
+                  <span class="text-xs text-slate-500">Zero crocking or surface flaking across dry and wet friction standards.</span>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="lg:col-span-6">
-            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900">
-              <img src="images/ai/quality_testing_lab.jpg" alt="Textile Quality Testing Lab" class="w-full h-full object-cover" />
+            <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 relative group">
+              <img src="images/ai/quality_testing_lab.jpg" alt="Textile Quality Testing Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between">
+                <div>
+                  <span class="text-amber-400 font-bold block text-[11px] uppercase tracking-wider">Durability Benchmarking</span>
+                  <span class="text-slate-300">ISO 105-C06 / AATCC 61 4A Launder-Ometer Suite</span>
+                </div>
+                <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full font-bold text-[10px]">GRADE 4-5 CERTIFIED</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Lab Testing Section 2: Spectrophotometer & Color Science Suite -->
+    <section class="py-16 sm:py-24 bg-slate-900 text-white border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 order-2 lg:order-1">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-800 aspect-[16/10] bg-slate-950 relative group">
+              <img src="images/ai/spectrophotometer_color_lab.jpg" alt="Spectrophotometer Color Matching Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between">
+                <div>
+                  <span class="text-cyan-400 font-bold block text-[11px] uppercase tracking-wider">Digital Chromatic Accuracy</span>
+                  <span class="text-slate-300">X-Rite Digital Spectrophotometer &bull; D65 Daylight</span>
+                </div>
+                <span class="px-2.5 py-1 bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-full font-bold text-[10px]">&Delta;E &lt; 0.5 TOLERANCE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5 order-1 lg:order-2">
+            <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-bold uppercase tracking-wider">
+              Spectrophotometer Color Matching
+            </span>
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">
+              Sub-Zero &Delta;E Color Precision Across Every Run
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Brand color identity allows zero compromises. Utilizing digital spectrophotometers, computerized ink formulation systems, and calibrated multi-illuminant light booths (D65 daylight, TL84 store lighting, and Incandescent A), we guarantee exact color fidelity between lab-dips, bulk sampling, and commercial mass production.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+                <span class="text-cyan-400 font-black text-lg block">&Delta;E &lt; 0.5</span>
+                <strong class="text-xs text-white block mt-0.5">Ultra-Tight Tolerance</strong>
+                <p class="text-[11px] text-slate-400 mt-1 leading-normal">Imperceptible to the naked human eye, matching global retail brand specs.</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+                <span class="text-amber-400 font-black text-lg block">Triple Illuminant</span>
+                <strong class="text-xs text-white block mt-0.5">Metamerism Control</strong>
+                <p class="text-[11px] text-slate-400 mt-1 leading-normal">Verified under D65 daylight, CWF showroom lighting, and tungsten home lamps.</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+                <span class="text-emerald-400 font-black text-lg block">Pantone TCX / TPX</span>
+                <strong class="text-xs text-white block mt-0.5">Textile Color Swatches</strong>
+                <p class="text-[11px] text-slate-400 mt-1 leading-normal">Full Pantone Cotton and Synthetic library for instantaneous digital recipes.</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+                <span class="text-purple-400 font-black text-lg block">Rheometer Viscosity</span>
+                <strong class="text-xs text-white block mt-0.5">Fluidity Rheology</strong>
+                <p class="text-[11px] text-slate-400 mt-1 leading-normal">Monitored ink viscosity prevents bleed and produces crisp 3D edge sharpness.</p>
+              </div>
             </div>
           </div>
 

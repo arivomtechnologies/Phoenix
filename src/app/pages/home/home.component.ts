@@ -441,28 +441,86 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
     </section>
 
     <!-- ========================================================================= -->
-    <!-- 6. RAPID SWATCH & PRODUCTION INQUIRY CTA                                  -->
+    <!-- 6. RAPID SWATCH & PRODUCTION INQUIRY CTA (MERCHANDISER SWATCH BOX)       -->
     <!-- ========================================================================= -->
-    <section class="py-16 sm:py-20 bg-brand-navy relative overflow-hidden">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <span class="px-3.5 py-1.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider inline-block">
-          Fast-Track Your Apparel Production
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Ready to Test Our Prints on Your Fabrics?
-        </h2>
-        <p class="text-slate-300 text-base max-w-2xl mx-auto font-normal">
-          We dispatch custom swatch sample kits directly to your merchandising department within 48 hours. Zero setup fees on qualified production sampling.
-        </p>
+    <section class="py-16 sm:py-24 bg-brand-navy relative overflow-hidden text-white border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <span class="px-3.5 py-1.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-wider inline-block">
+              Complimentary For Apparel Buying Houses &amp; Exporters
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Request Your Curated 2026 Textile Swatch &amp; Sample Box
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Touch and feel actual production quality before placing bulk orders. Our custom kit is packed with tactile silicone hardness cards, photorealistic DTF transfers, damask woven labels, and embossed leather patches.
+            </p>
 
-        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a routerLink="/contact-us" class="px-8 py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-lg shadow-orange-500/30 transition-all whitespace-nowrap">
-            Order Free Swatch Pack &rarr;
-          </a>
-          <a href="tel:9944107633" class="px-8 py-4 text-base font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-full transition-all whitespace-nowrap">
-            Call Tiruppur Office: +91 9944107633
-          </a>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">&check;</span>
+                <div>
+                  <strong class="text-xs text-white block">15x 3D Silicone Touch Swatches</strong>
+                  <span class="text-[11px] text-slate-400">Shore hardness 20A to 60A on poly-lycra &amp; cotton</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">&check;</span>
+                <div>
+                  <strong class="text-xs text-white block">10x DTF Multi-Fabric Test Strips</strong>
+                  <span class="text-[11px] text-slate-400">Cold-peel &amp; hot-peel on fleece, nylon, and twill</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">&check;</span>
+                <div>
+                  <strong class="text-xs text-white block">8x Ultrasonic Damask Woven Labels</strong>
+                  <span class="text-[11px] text-slate-400">Ultra-soft edges with no scratch on necklines</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-2xl border border-slate-800">
+                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">&check;</span>
+                <div>
+                  <strong class="text-xs text-white block">Heat-Press Calibration Guide</strong>
+                  <span class="text-[11px] text-slate-400">Exact time, temperature (&deg;C), and pressure bar cards</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+              <a routerLink="/contact-us" class="w-full sm:w-auto text-center px-8 py-4 text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-lg shadow-orange-500/30 transition-all">
+                Order Free Merchandiser Swatch Kit &rarr;
+              </a>
+              <a href="tel:9944107633" class="w-full sm:w-auto text-center px-6 py-4 text-sm font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-full transition-all">
+                Call Desk: +91 99441 07633
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 group">
+              <img src="images/ai/swatch_box_merchandiser_kit.jpg" alt="Phoenix Textile Swatch & Sample Box" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-700/60 text-white text-[11px] font-bold">
+                <span class="text-amber-400">&starf;</span> 2026 EXPORT EDITION
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-950/90 backdrop-blur-md p-3.5 rounded-2xl border border-slate-700/60 text-white text-xs flex items-center justify-between">
+                <div>
+                  <strong class="text-white block text-xs">Direct Merchandiser Dispatch</strong>
+                  <span class="text-[11px] text-slate-400">Shipped within 24-48 Hours</span>
+                </div>
+                <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full font-bold text-[10px]">ZERO SAMPLE FEE</span>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
