@@ -23,7 +23,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
             <!-- Pill Badge (FillTrip Style) -->
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-brand-blue text-xs font-bold tracking-wide">
               <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
-              <span>AI-DRIVEN TEXTILE PRINTING &amp; APPAREL ACCESSORIES</span>
+              <span>PRECISION TEXTILE PRINTING &amp; APPAREL ACCESSORIES</span>
             </div>
 
             <!-- Massive Display Headline (FillTrip Typography) -->
