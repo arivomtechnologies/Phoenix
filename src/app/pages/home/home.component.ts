@@ -2,6 +2,7 @@ import { Component, signal, computed, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples.data';
 
 @Component({
   selector: 'app-home',
@@ -336,44 +337,46 @@ import { FormsModule } from '@angular/forms';
                [class.paused]="isGalleryPaused()">
             
             <!-- Set 1 (Row 1) -->
-            <div *ngFor="let img of row1Samples"
-                 (click)="openSampleModal(img)"
-                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-amber-400/60">
-              <img [src]="'images/gallery/' + img" 
-                   [alt]="'Production Sample ' + img" 
+            <div *ngFor="let item of row1Samples"
+                 (click)="openSampleModal(item)"
+                 class="group relative w-56 sm:w-64 h-56 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-amber-400/60">
+              <img [src]="'images/gallery/' + item.filename" 
+                   [alt]="item.title" 
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30">
-                #{{ img.replace('.jpeg', '') }}
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30">
+                {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                <span class="text-xs font-bold text-amber-300">Phoenix Production Sample</span>
-                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
-                  <span>Click to zoom</span> &rarr;
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-[10px] uppercase font-black text-amber-400 tracking-wider">{{ item.categoryLabel }}</span>
+                <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
+                  <span class="line-clamp-1">{{ item.technique }}</span> &bull; <span>Click to zoom</span> &rarr;
                 </span>
               </div>
             </div>
 
             <!-- Set 2 (Exact duplicate for seamless infinite loop) -->
-            <div *ngFor="let img of row1Samples"
-                 (click)="openSampleModal(img)"
+            <div *ngFor="let item of row1Samples"
+                 (click)="openSampleModal(item)"
                  aria-hidden="true"
-                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-amber-400/60">
-              <img [src]="'images/gallery/' + img" 
-                   [alt]="'Production Sample ' + img" 
+                 class="group relative w-56 sm:w-64 h-56 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-amber-400/60">
+              <img [src]="'images/gallery/' + item.filename" 
+                   [alt]="item.title" 
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30">
-                #{{ img.replace('.jpeg', '') }}
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30">
+                {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                <span class="text-xs font-bold text-amber-300">Phoenix Production Sample</span>
-                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
-                  <span>Click to zoom</span> &rarr;
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-[10px] uppercase font-black text-amber-400 tracking-wider">{{ item.categoryLabel }}</span>
+                <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
+                  <span class="line-clamp-1">{{ item.technique }}</span> &bull; <span>Click to zoom</span> &rarr;
                 </span>
               </div>
             </div>
@@ -387,44 +390,46 @@ import { FormsModule } from '@angular/forms';
                [class.paused]="isGalleryPaused()">
             
             <!-- Set 1 (Row 2) -->
-            <div *ngFor="let img of row2Samples"
-                 (click)="openSampleModal(img)"
-                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-cyan-400/60">
-              <img [src]="'images/gallery/' + img" 
-                   [alt]="'Production Sample ' + img" 
+            <div *ngFor="let item of row2Samples"
+                 (click)="openSampleModal(item)"
+                 class="group relative w-56 sm:w-64 h-56 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-cyan-400/60">
+              <img [src]="'images/gallery/' + item.filename" 
+                   [alt]="item.title" 
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30">
-                #{{ img.replace('.jpeg', '') }}
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30">
+                {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                <span class="text-xs font-bold text-cyan-300">Phoenix Production Sample</span>
-                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
-                  <span>Click to zoom</span> &rarr;
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-[10px] uppercase font-black text-cyan-300 tracking-wider">{{ item.categoryLabel }}</span>
+                <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
+                  <span class="line-clamp-1">{{ item.technique }}</span> &bull; <span>Click to zoom</span> &rarr;
                 </span>
               </div>
             </div>
 
             <!-- Set 2 (Exact duplicate for seamless infinite loop) -->
-            <div *ngFor="let img of row2Samples"
-                 (click)="openSampleModal(img)"
+            <div *ngFor="let item of row2Samples"
+                 (click)="openSampleModal(item)"
                  aria-hidden="true"
-                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-cyan-400/60">
-              <img [src]="'images/gallery/' + img" 
-                   [alt]="'Production Sample ' + img" 
+                 class="group relative w-56 sm:w-64 h-56 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-cyan-400/60">
+              <img [src]="'images/gallery/' + item.filename" 
+                   [alt]="item.title" 
                    loading="lazy"
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               
-              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30">
-                #{{ img.replace('.jpeg', '') }}
+              <div class="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30">
+                {{ item.categoryLabel }}
               </div>
 
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                <span class="text-xs font-bold text-cyan-300">Phoenix Production Sample</span>
-                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
-                  <span>Click to zoom</span> &rarr;
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-[10px] uppercase font-black text-cyan-300 tracking-wider">{{ item.categoryLabel }}</span>
+                <h4 class="text-xs font-bold text-white leading-snug line-clamp-2 mt-0.5">{{ item.title }}</h4>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-1">
+                  <span class="line-clamp-1">{{ item.technique }}</span> &bull; <span>Click to zoom</span> &rarr;
                 </span>
               </div>
             </div>
@@ -469,20 +474,25 @@ import { FormsModule } from '@angular/forms';
          (click)="closeSampleModal()">
       
       <!-- Top Fixed Header Bar (Always Visible at Top of Viewport) -->
-      <div class="relative z-50 flex items-center justify-between w-full max-w-6xl mx-auto py-1" (click)="$event.stopPropagation()">
+      <div class="relative z-50 flex items-center justify-between w-full max-w-6xl mx-auto py-1 gap-4" (click)="$event.stopPropagation()">
         
-        <!-- Left: Sample Counter Badge -->
-        <div class="flex items-center gap-3">
-          <span class="px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 font-extrabold text-xs border border-slate-700 shadow-md">
-            Sample #{{ (selectedSampleIndex()! + 1) }} of {{ allSamples.length }}
+        <!-- Left: Proper Title & Technique (NO raw image filename!) -->
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 font-extrabold text-xs border border-slate-700 shadow-md whitespace-nowrap shrink-0">
+            {{ currentSample()!.categoryLabel }}
           </span>
-          <span class="text-xs font-semibold text-slate-300 hidden sm:inline">
-            Phoenix Garment Accessories Archive
-          </span>
+          <div class="flex flex-col min-w-0">
+            <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight truncate">
+              {{ currentSample()!.title }}
+            </h3>
+            <span class="text-[11px] font-medium text-slate-400 hidden sm:inline truncate">
+              {{ currentSample()!.technique }} &bull; {{ currentSample()!.application }}
+            </span>
+          </div>
         </div>
 
         <!-- Center: Interactive Zoom Toolbar -->
-        <div class="flex items-center gap-1.5 bg-slate-900/95 px-3 py-1.5 rounded-full border border-slate-700/80 shadow-xl text-white text-xs">
+        <div class="flex items-center gap-1.5 bg-slate-900/95 px-3 py-1.5 rounded-full border border-slate-700/80 shadow-xl text-white text-xs shrink-0">
           <button (click)="zoomOut()" 
                   type="button"
                   [disabled]="zoomLevel() <= 1"
@@ -496,7 +506,7 @@ import { FormsModule } from '@angular/forms';
                   class="px-2 font-bold hover:text-amber-400 transition flex items-center gap-1" 
                   title="Click to Toggle Zoom">
             <span>{{ zoomLevel() }}x</span>
-            <span class="text-[10px] text-slate-400">{{ isZoomed() ? '(Click to Fit)' : '(Click to Zoom)' }}</span>
+            <span class="text-[10px] text-slate-400 hidden sm:inline">{{ isZoomed() ? '(Click to Fit)' : '(Click to Zoom)' }}</span>
           </button>
 
           <button (click)="zoomIn()" 
@@ -511,7 +521,7 @@ import { FormsModule } from '@angular/forms';
         <!-- Right: Prominent CANCEL / CLOSE Button (Impossible to Miss) -->
         <button (click)="closeSampleModal()" 
                 type="button"
-                class="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-black text-xs shadow-2xl flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer"
+                class="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-black text-xs shadow-2xl flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer shrink-0"
                 aria-label="Cancel and Close Modal">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
@@ -538,8 +548,8 @@ import { FormsModule } from '@angular/forms';
              [class.cursor-zoom-out]="isZoomed()"
              (click)="toggleZoom()"
              title="Click directly to Zoom in / Zoom out">
-          <img [src]="'images/gallery/' + currentSample()" 
-               [alt]="'Phoenix Sample ' + currentSample()" 
+          <img [src]="'images/gallery/' + currentSample()!.filename" 
+               [alt]="currentSample()!.title" 
                class="max-h-[70vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl transition-transform duration-300 ease-out select-none border border-slate-800/80"
                [style.transform]="'scale(' + zoomLevel() + ')'" />
         </div>
@@ -556,16 +566,18 @@ import { FormsModule } from '@angular/forms';
 
       <!-- Bottom Floating Instructions & Footer Bar -->
       <div class="relative z-50 flex items-center justify-between w-full max-w-4xl mx-auto px-4 py-2.5 bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-800 text-white text-xs shadow-xl" (click)="$event.stopPropagation()">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-slate-300 text-xs font-medium">Click photo directly to zoom &bull; Drag or use controls</span>
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <span class="text-slate-300 text-xs font-medium truncate">
+            <strong class="text-white">{{ currentSample()!.title }}</strong> &bull; {{ currentSample()!.technique }}
+          </span>
         </div>
 
-        <div class="flex items-center gap-3">
-          <span class="text-slate-400 text-[11px] hidden sm:inline">Use &larr; &rarr; Keys &bull; Press ESC to Cancel</span>
+        <div class="flex items-center gap-3 shrink-0">
+          <span class="text-slate-400 text-[11px] hidden sm:inline">Press ESC to Cancel &bull; Click to Zoom</span>
           <button (click)="closeSampleModal()" 
                   type="button"
-                  class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition">
+                  class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition whitespace-nowrap">
             Close &times;
           </button>
         </div>
@@ -580,13 +592,13 @@ export class HomeComponent {
   isZoomed = signal(false);
   isGalleryPaused = signal(false);
 
-  allSamples = Array.from({ length: 30 }, (_, i) => `${i + 1}.jpeg`);
-  row1Samples = Array.from({ length: 15 }, (_, i) => `${i + 1}.jpeg`);
-  row2Samples = Array.from({ length: 15 }, (_, i) => `${i + 16}.jpeg`);
+  samples: ProductionSample[] = FACTORY_PRODUCTION_SAMPLES;
+  row1Samples: ProductionSample[] = FACTORY_PRODUCTION_SAMPLES.slice(0, 15);
+  row2Samples: ProductionSample[] = FACTORY_PRODUCTION_SAMPLES.slice(15, 30);
 
-  currentSample = computed(() => {
+  currentSample = computed<ProductionSample | null>(() => {
     const idx = this.selectedSampleIndex();
-    return idx !== null ? this.allSamples[idx] : null;
+    return idx !== null ? this.samples[idx] : null;
   });
 
   capabilities = [
@@ -626,8 +638,8 @@ export class HomeComponent {
     this.isGalleryPaused.update(v => !v);
   }
 
-  openSampleModal(sample: string) {
-    const idx = this.allSamples.indexOf(sample);
+  openSampleModal(sample: ProductionSample) {
+    const idx = this.samples.findIndex(s => s.id === sample.id);
     this.selectedSampleIndex.set(idx >= 0 ? idx : 0);
     this.zoomLevel.set(1);
     this.isZoomed.set(false);
@@ -670,7 +682,7 @@ export class HomeComponent {
     this.zoomLevel.set(1);
     this.isZoomed.set(false);
     this.selectedSampleIndex.update(idx => 
-      (idx === null || idx === 0) ? this.allSamples.length - 1 : idx - 1
+      (idx === null || idx === 0) ? this.samples.length - 1 : idx - 1
     );
   }
 
@@ -679,7 +691,7 @@ export class HomeComponent {
     this.zoomLevel.set(1);
     this.isZoomed.set(false);
     this.selectedSampleIndex.update(idx => 
-      (idx === null || idx === this.allSamples.length - 1) ? 0 : idx + 1
+      (idx === null || idx === this.samples.length - 1) ? 0 : idx + 1
     );
   }
 }

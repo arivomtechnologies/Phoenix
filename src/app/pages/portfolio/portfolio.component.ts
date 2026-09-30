@@ -1,14 +1,7 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-interface SampleItem {
-  id: number;
-  filename: string;
-  category: 'silicone' | 'dtf' | 'woven' | 'specialty';
-  title: string;
-  technique: string;
-}
+import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples.data';
 
 @Component({
   selector: 'app-portfolio',
@@ -25,7 +18,7 @@ interface SampleItem {
           Factory Portfolio &amp; Swatch Gallery
         </h1>
         <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
-          Explore 30 verified production samples manufactured at our Tiruppur facility. Every photo represents real export order deliverables.
+          Explore 30 verified production samples manufactured at our Tiruppur facility. Every item reflects real export order deliverables with calibrated wash-durability and tactile quality.
         </p>
 
         <!-- Category Filter Tabs (FillTrip Pill Style) -->
@@ -37,7 +30,7 @@ interface SampleItem {
                   [class.shadow-md]="activeCategory() === tab.key"
                   [class.bg-slate-800]="activeCategory() !== tab.key"
                   [class.text-slate-300]="activeCategory() !== tab.key"
-                  class="px-4 py-2 rounded-full text-xs font-bold transition-all border border-slate-700">
+                  class="px-4 py-2 rounded-full text-xs font-bold transition-all border border-slate-700 whitespace-nowrap">
             {{ tab.label }} ({{ getCategoryCount(tab.key) }})
           </button>
         </div>
@@ -48,25 +41,27 @@ interface SampleItem {
     <section class="py-16 bg-slate-50 min-h-screen">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <div *ngFor="let item of filteredSamples()"
                (click)="openLightbox(item)"
                class="group relative rounded-3xl overflow-hidden bg-white shadow-card border border-slate-200/80 cursor-pointer aspect-square hover:shadow-float transition-all duration-300">
             
             <img [src]="'images/gallery/' + item.filename" 
                  [alt]="item.title" 
+                 loading="lazy"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
 
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-              <span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">{{ item.technique }}</span>
-              <h4 class="text-sm font-bold leading-snug">{{ item.title }}</h4>
-              <span class="text-[11px] text-slate-300 mt-1 flex items-center gap-1 font-medium">
-                <span>Click to inspect</span> &rarr;
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+              <span class="text-[10px] uppercase font-black text-amber-400 tracking-wider">{{ item.categoryLabel }}</span>
+              <h4 class="text-sm font-bold leading-snug mt-1">{{ item.title }}</h4>
+              <p class="text-xs text-slate-300 mt-1 line-clamp-1 font-medium">{{ item.technique }}</p>
+              <span class="text-[11px] text-amber-300 mt-2 flex items-center gap-1 font-bold">
+                <span>Click to zoom &amp; inspect</span> &rarr;
               </span>
             </div>
 
-            <span class="absolute top-3 right-3 bg-slate-900/75 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-              #{{ item.id }}
+            <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-3 py-1 rounded-full border border-slate-700/80">
+              {{ item.categoryLabel }}
             </span>
           </div>
         </div>
@@ -74,90 +69,136 @@ interface SampleItem {
       </div>
     </section>
 
-    <!-- Full-Screen Lightbox Modal -->
+    <!-- Full-Screen Lightbox Modal with Click-To-Zoom and Cancel -->
     <div *ngIf="activeLightboxItem()" 
-         class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+         class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-6 select-none animate-fadeIn"
          (click)="closeLightbox()">
       
-      <button (click)="closeLightbox()" 
-              class="absolute top-5 right-5 text-white/80 hover:text-white p-2 rounded-full bg-slate-800/80 hover:bg-slate-700 transition"
-              aria-label="Close Lightbox">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
+      <!-- Top Bar -->
+      <div class="relative z-50 flex items-center justify-between w-full max-w-6xl mx-auto py-1 gap-4" (click)="$event.stopPropagation()">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="px-3.5 py-1.5 rounded-full bg-slate-900 text-amber-400 font-extrabold text-xs border border-slate-700 shadow-md whitespace-nowrap shrink-0">
+            {{ activeLightboxItem()!.categoryLabel }}
+          </span>
+          <div class="flex flex-col min-w-0">
+            <h3 class="text-sm sm:text-base font-extrabold text-white tracking-tight truncate">
+              {{ activeLightboxItem()!.title }}
+            </h3>
+            <span class="text-[11px] font-medium text-slate-400 hidden sm:inline truncate">
+              {{ activeLightboxItem()!.technique }} &bull; {{ activeLightboxItem()!.application }}
+            </span>
+          </div>
+        </div>
 
-      <div class="relative max-w-3xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl p-4" 
-           (click)="$event.stopPropagation()">
+        <!-- Zoom Controls -->
+        <div class="flex items-center gap-1.5 bg-slate-900/95 px-3 py-1.5 rounded-full border border-slate-700/80 shadow-xl text-white text-xs shrink-0">
+          <button (click)="zoomOut()" 
+                  type="button"
+                  [disabled]="zoomLevel() <= 1"
+                  class="p-1 hover:text-amber-400 disabled:opacity-30 disabled:hover:text-white transition" 
+                  title="Zoom Out">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/></svg>
+          </button>
+          
+          <button (click)="toggleZoom()" 
+                  type="button"
+                  class="px-2 font-bold hover:text-amber-400 transition flex items-center gap-1" 
+                  title="Click to Toggle Zoom">
+            <span>{{ zoomLevel() }}x</span>
+            <span class="text-[10px] text-slate-400 hidden sm:inline">{{ isZoomed() ? '(Click to Fit)' : '(Click to Zoom)' }}</span>
+          </button>
+
+          <button (click)="zoomIn()" 
+                  type="button"
+                  [disabled]="zoomLevel() >= 3"
+                  class="p-1 hover:text-amber-400 disabled:opacity-30 disabled:hover:text-white transition" 
+                  title="Zoom In">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          </button>
+        </div>
+
+        <!-- Fixed Cancel Button -->
+        <button (click)="closeLightbox()" 
+                type="button"
+                class="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-black text-xs shadow-2xl flex items-center gap-1.5 transition-transform hover:scale-105 cursor-pointer shrink-0"
+                aria-label="Cancel and Close Modal">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <span>Cancel &times;</span>
+        </button>
+      </div>
+
+      <!-- Center Stage -->
+      <div class="relative flex-1 flex items-center justify-center overflow-hidden my-2 sm:my-4" (click)="$event.stopPropagation()">
         
-        <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black flex items-center justify-center">
+        <!-- Prev Arrow -->
+        <button (click)="prevLightbox($event)" 
+                type="button"
+                class="absolute left-2 sm:left-6 z-40 p-3 rounded-full bg-slate-900/85 hover:bg-slate-800 text-white border border-slate-700 hover:scale-110 transition shadow-2xl"
+                aria-label="Previous Sample">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <!-- Center Image with Click to Zoom -->
+        <div class="relative max-h-[72vh] flex items-center justify-center transition-all duration-300"
+             [class.cursor-zoom-in]="!isZoomed()"
+             [class.cursor-zoom-out]="isZoomed()"
+             (click)="toggleZoom()"
+             title="Click directly to Zoom in / Zoom out">
           <img [src]="'images/gallery/' + activeLightboxItem()!.filename" 
                [alt]="activeLightboxItem()!.title" 
-               class="max-w-full max-h-full object-contain" />
+               class="max-h-[70vh] w-auto max-w-full rounded-2xl object-contain shadow-2xl transition-transform duration-300 ease-out select-none border border-slate-800/80"
+               [style.transform]="'scale(' + zoomLevel() + ')'" />
         </div>
 
-        <div class="mt-4 flex items-center justify-between text-white">
-          <div>
-            <span class="text-xs uppercase font-bold text-amber-400 block">{{ activeLightboxItem()!.technique }}</span>
-            <h3 class="text-base font-bold">{{ activeLightboxItem()!.title }}</h3>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <button (click)="prevLightbox()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button (click)="nextLightbox()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
+        <!-- Next Arrow -->
+        <button (click)="nextLightbox($event)" 
+                type="button"
+                class="absolute right-2 sm:right-6 z-40 p-3 rounded-full bg-slate-900/85 hover:bg-slate-800 text-white border border-slate-700 hover:scale-110 transition shadow-2xl"
+                aria-label="Next Sample">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
 
       </div>
+
+      <!-- Bottom Bar -->
+      <div class="relative z-50 flex items-center justify-between w-full max-w-4xl mx-auto px-4 py-2.5 bg-slate-900/90 backdrop-blur-md rounded-2xl border border-slate-800 text-white text-xs shadow-xl" (click)="$event.stopPropagation()">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+          <span class="text-slate-300 text-xs font-medium truncate">
+            <strong class="text-white">{{ activeLightboxItem()!.title }}</strong> &bull; {{ activeLightboxItem()!.technique }}
+          </span>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <span class="text-slate-400 text-[11px] hidden sm:inline">Press ESC to Cancel &bull; Click to Zoom</span>
+          <button (click)="closeLightbox()" 
+                  type="button"
+                  class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-200 hover:text-white transition whitespace-nowrap">
+            Close &times;
+          </button>
+        </div>
+      </div>
+
     </div>
   `
 })
 export class PortfolioComponent {
   activeCategory = signal<'all' | 'silicone' | 'dtf' | 'woven' | 'specialty'>('all');
-  activeLightboxItem = signal<SampleItem | null>(null);
+  activeLightboxIndex = signal<number | null>(null);
+  zoomLevel = signal(1);
+  isZoomed = signal(false);
 
   filterTabs = [
     { key: 'all' as const, label: 'All Samples' },
-    { key: 'silicone' as const, label: '3D Silicone & Rubber' },
-    { key: 'dtf' as const, label: 'DTF & Digital Transfers' },
-    { key: 'woven' as const, label: 'Woven Labels & Patches' },
+    { key: 'silicone' as const, label: '3D Silicone Prints' },
+    { key: 'dtf' as const, label: 'DTF Digital Transfers' },
+    { key: 'woven' as const, label: 'Woven & Leather Trims' },
     { key: 'specialty' as const, label: 'Specialty Embellishments' }
   ];
 
-  samples: SampleItem[] = Array.from({ length: 30 }, (_, i) => {
-    const id = i + 1;
-    let cat: 'silicone' | 'dtf' | 'woven' | 'specialty' = 'silicone';
-    let tech = '3D Silicone Print';
-    let title = `Phoenix Export Sample #${id}`;
-
-    if (id % 4 === 1) {
-      cat = 'silicone';
-      tech = '3D Raised Silicone Print';
-      title = `High-Density Silicone Badge #${id}`;
-    } else if (id % 4 === 2) {
-      cat = 'dtf';
-      tech = 'Industrial DTF Digital Transfer';
-      title = `Full-Color DTF Graphic Transfer #${id}`;
-    } else if (id % 4 === 3) {
-      cat = 'woven';
-      tech = 'Damask Woven / Leather Trim';
-      title = `Custom Woven Neck & Hem Tag #${id}`;
-    } else {
-      cat = 'specialty';
-      tech = 'Embossed & Reflective Print';
-      title = `Dimensional Embellishment #${id}`;
-    }
-
-    return {
-      id,
-      filename: `${id}.jpeg`,
-      category: cat,
-      title,
-      technique: tech
-    };
-  });
+  samples: ProductionSample[] = FACTORY_PRODUCTION_SAMPLES;
 
   filteredSamples = computed(() => {
     const cat = this.activeCategory();
@@ -165,30 +206,79 @@ export class PortfolioComponent {
     return this.samples.filter(s => s.category === cat);
   });
 
+  activeLightboxItem = computed<ProductionSample | null>(() => {
+    const idx = this.activeLightboxIndex();
+    return idx !== null ? this.samples[idx] : null;
+  });
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (this.activeLightboxIndex() !== null) {
+      if (event.key === 'Escape') this.closeLightbox();
+      if (event.key === 'ArrowLeft') this.prevLightbox();
+      if (event.key === 'ArrowRight') this.nextLightbox();
+    }
+  }
+
   getCategoryCount(cat: string): number {
     if (cat === 'all') return this.samples.length;
     return this.samples.filter(s => s.category === cat).length;
   }
 
-  openLightbox(item: SampleItem) {
-    this.activeLightboxItem.set(item);
+  openLightbox(item: ProductionSample) {
+    const idx = this.samples.findIndex(s => s.id === item.id);
+    this.activeLightboxIndex.set(idx >= 0 ? idx : 0);
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
   }
 
   closeLightbox() {
-    this.activeLightboxItem.set(null);
+    this.activeLightboxIndex.set(null);
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
   }
 
-  nextLightbox() {
-    const cur = this.activeLightboxItem();
-    if (!cur) return;
-    const idx = this.samples.findIndex(s => s.id === cur.id);
-    this.activeLightboxItem.set(this.samples[(idx + 1) % this.samples.length]);
+  toggleZoom() {
+    if (this.zoomLevel() === 1) {
+      this.zoomLevel.set(2);
+      this.isZoomed.set(true);
+    } else {
+      this.zoomLevel.set(1);
+      this.isZoomed.set(false);
+    }
   }
 
-  prevLightbox() {
-    const cur = this.activeLightboxItem();
-    if (!cur) return;
-    const idx = this.samples.findIndex(s => s.id === cur.id);
-    this.activeLightboxItem.set(this.samples[(idx - 1 + this.samples.length) % this.samples.length]);
+  zoomIn() {
+    this.zoomLevel.update(z => {
+      const next = Math.min(+(z + 0.5).toFixed(1), 3);
+      this.isZoomed.set(next > 1);
+      return next;
+    });
+  }
+
+  zoomOut() {
+    this.zoomLevel.update(z => {
+      const next = Math.max(+(z - 0.5).toFixed(1), 1);
+      this.isZoomed.set(next > 1);
+      return next;
+    });
+  }
+
+  prevLightbox(event?: Event) {
+    event?.stopPropagation();
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
+    this.activeLightboxIndex.update(idx => 
+      (idx === null || idx === 0) ? this.samples.length - 1 : idx - 1
+    );
+  }
+
+  nextLightbox(event?: Event) {
+    event?.stopPropagation();
+    this.zoomLevel.set(1);
+    this.isZoomed.set(false);
+    this.activeLightboxIndex.update(idx => 
+      (idx === null || idx === this.samples.length - 1) ? 0 : idx + 1
+    );
   }
 }
