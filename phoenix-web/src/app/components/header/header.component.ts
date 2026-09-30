@@ -23,7 +23,7 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
           <a routerLink="/" class="flex items-center gap-3.5 group shrink-0 select-none">
             
             <!-- Redesigned High-Definition CMYK Printing Emblem -->
-            <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/90 p-1.5 flex items-center justify-center shrink-0 group-hover:border-brand-orange/50 group-hover:shadow-md transition-all duration-300">
+            <div class="w-11 h-11 rounded-xl bg-white shadow-sm border border-slate-200/90 p-1 flex items-center justify-center shrink-0 group-hover:border-brand-orange/50 group-hover:shadow-md transition-all duration-300">
               <svg class="w-full h-full transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <!-- Vibrant Process CMYK Gradients -->
@@ -77,13 +77,13 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
             <div class="flex flex-col whitespace-nowrap">
               
               <!-- Row 1: Company Name + Redesigned Tiruppur Badge -->
-              <div class="flex items-center gap-2.5">
-                <span class="font-black text-2xl sm:text-[26px] tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
+              <div class="flex items-center gap-2">
+                <span class="font-black text-xl sm:text-[22px] tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
                   PHOENIX
                 </span>
                 
                 <!-- Modern Tiruppur Live Hub Pill Badge -->
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[10px] font-black tracking-wider uppercase shadow-xs border border-slate-800">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[9.5px] font-black tracking-wider uppercase shadow-xs border border-slate-800">
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   TIRUPPUR
                 </span>
@@ -91,7 +91,7 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
 
               <!-- Row 2: Redesigned Wide-Tracked Tagline -->
               <div class="flex items-center gap-2 -mt-0.5">
-                <span class="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-slate-400 group-hover:text-slate-600 transition-colors">
+                <span class="text-[9px] font-extrabold uppercase tracking-[0.18em] text-slate-400 group-hover:text-slate-600 transition-colors">
                   LABELS &bull; STICKERS &bull; PRINTING
                 </span>
               </div>
@@ -210,7 +210,7 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
           </div>
           <div class="flex flex-col whitespace-nowrap">
             <div class="flex items-center gap-2">
-              <span class="font-black text-xl tracking-tight text-slate-900">PHOENIX</span>
+              <span class="font-black text-lg tracking-tight text-slate-900">PHOENIX</span>
               <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[9px] font-black uppercase">
                 <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
                 TIRUPPUR

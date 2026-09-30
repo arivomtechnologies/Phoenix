@@ -118,7 +118,7 @@ import { FormsModule } from '@angular/forms';
                 </div>
                 <div class="flex flex-col">
                   <div class="flex items-center gap-2">
-                    <span class="font-black text-xl tracking-tight text-slate-900">PHOENIX</span>
+                    <span class="font-black text-lg sm:text-[19px] tracking-tight text-slate-900">PHOENIX</span>
                     <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[9px] font-black uppercase">
                       <span class="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
                       TIRUPPUR
