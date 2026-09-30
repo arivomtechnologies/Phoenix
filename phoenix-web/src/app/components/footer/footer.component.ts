@@ -125,13 +125,28 @@ import { FormsModule } from '@angular/forms';
 
         </div>
 
-        <!-- Bottom Copyright -->
-        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>&copy; {{ currentYear }} Phoenix Labels, Stickers &amp; Printing. All Rights Reserved. Tiruppur, India.</p>
-          <div class="flex items-center gap-6">
-            <a routerLink="/" class="hover:text-slate-300 transition">Privacy Policy</a>
-            <a routerLink="/" class="hover:text-slate-300 transition">Terms of Supply</a>
-            <a routerLink="/quality" class="hover:text-slate-300 transition">OEKO-TEX Compliance</a>
+        <!-- Bottom Copyright & Developer Credit -->
+        <div class="pt-8 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left flex-wrap">
+            <p>&copy; {{ currentYear }} Phoenix Labels, Stickers &amp; Printing. All Rights Reserved. Tiruppur, India.</p>
+            
+            <!-- Developed by Arivom Technologies Badge -->
+            <div class="inline-flex items-center gap-1.5 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700/80 text-[11px]">
+              <span class="text-slate-400">Developed by</span>
+              <a href="mailto:arivomtechnologies@gmail.com" 
+                 class="text-amber-400 hover:text-amber-300 font-bold transition-colors inline-flex items-center gap-1 hover:underline"
+                 title="Contact Developer">
+                <span>Arivom Technologies</span>
+                <span class="text-slate-400 font-normal">&bull;</span>
+                <span class="text-slate-300 font-medium">arivomtechnologies&#64;gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-6 text-slate-400">
+            <a routerLink="/" class="hover:text-slate-200 transition">Privacy Policy</a>
+            <a routerLink="/" class="hover:text-slate-200 transition">Terms of Supply</a>
+            <a routerLink="/quality" class="hover:text-slate-200 transition">OEKO-TEX Compliance</a>
           </div>
         </div>
 
