@@ -160,6 +160,60 @@ import { FormsModule } from '@angular/forms';
 
         </div>
 
+        <!-- Tiruppur Innovation Showroom & Archive Library -->
+        <div class="mt-16 bg-white rounded-3xl p-8 sm:p-10 shadow-card border border-slate-200">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-6 space-y-4">
+              <span class="px-3.5 py-1.5 rounded-full bg-orange-100 text-brand-orange text-xs font-bold uppercase tracking-wider inline-block">
+                Tiruppur Innovation Hub
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Visit Our Merchandising Showroom &amp; Sample Library
+              </h2>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Planning an apparel collection? Visit our central Tiruppur development center. Review over 500+ physical production swatches, inspect micro-bead caviar prints under magnification, and test heat-transfer adhesives directly on your cut fabric panels using our calibrated pneumatic test presses.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
+                  <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span>500+ Archive Swatches</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
+                  <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span>Live Heat-Press Testing</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
+                  <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span>Same-Day Lab Approvals</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
+                  <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span>Direct Technical Advice</span>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <a href="tel:9944107633" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md transition">
+                  <span>Schedule Factory Visit</span> &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6">
+              <div class="rounded-3xl overflow-hidden shadow-card border border-slate-100 aspect-[16/10] bg-slate-900 relative group">
+                <img src="images/ai/factory_showroom_swatch_desk.jpg" alt="Phoenix Tiruppur Merchandising Showroom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute bottom-3 left-3 right-3 bg-slate-950/80 backdrop-blur-md p-3 rounded-2xl border border-slate-700/50 text-white text-xs flex items-center justify-between">
+                  <span class="font-bold text-amber-300">Merchandiser Discussion Desk</span>
+                  <span class="text-slate-300 text-[11px]">Tiruppur, Tamil Nadu</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
         <!-- Google Maps Responsive Embed -->
         <div class="mt-12 rounded-3xl overflow-hidden shadow-card border border-slate-200">
           <iframe 
