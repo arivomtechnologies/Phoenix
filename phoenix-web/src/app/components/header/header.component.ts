@@ -19,79 +19,83 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
       <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20 gap-4">
           
-          <!-- Brand Logo & Label Lockup (Redesigned CMYK Emblem, Company Name & Tags) -->
+          <!-- Brand Logo & Label Lockup (Redesigned Modern Emblem, Typography & Tiruppur Badge) -->
           <a routerLink="/" class="flex items-center gap-3.5 group shrink-0 select-none">
             
-            <!-- Redesigned High-Definition CMYK Printing Butterfly Emblem -->
-            <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/90 p-1.5 flex items-center justify-center shrink-0 group-hover:border-brand-orange/40 group-hover:shadow-md transition-all duration-300">
+            <!-- Redesigned High-Definition CMYK Printing Emblem -->
+            <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200/90 p-1.5 flex items-center justify-center shrink-0 group-hover:border-brand-orange/50 group-hover:shadow-md transition-all duration-300">
               <svg class="w-full h-full transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <!-- Vibrant CMYK Gradients -->
-                  <linearGradient id="cyanWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <!-- Vibrant Process CMYK Gradients -->
+                  <linearGradient id="cmykCyan" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#38bdf8"/>
                     <stop offset="100%" stop-color="#0284c7"/>
                   </linearGradient>
-                  <linearGradient id="yellowWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="cmykYellow" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#fde047"/>
                     <stop offset="100%" stop-color="#eab308"/>
                   </linearGradient>
-                  <linearGradient id="magentaWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#f43f5e"/>
-                    <stop offset="100%" stop-color="#be123c"/>
+                  <linearGradient id="cmykMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fb7185"/>
+                    <stop offset="100%" stop-color="#e11d48"/>
                   </linearGradient>
-                  <linearGradient id="blackWingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#334155"/>
+                  <linearGradient id="cmykBlack" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#475569"/>
                     <stop offset="100%" stop-color="#0f172a"/>
                   </linearGradient>
                 </defs>
 
-                <!-- Soft Circular Emblem Ring -->
-                <circle cx="50" cy="50" r="46" stroke="#f1f5f9" stroke-width="2.5" fill="#f8fafc"/>
+                <!-- Soft Circular Frame -->
+                <circle cx="50" cy="50" r="45" stroke="#f1f5f9" stroke-width="2.5" fill="#f8fafc"/>
                 
                 <!-- Fluid Antennae Arcs with Terminals -->
-                <path d="M47 38 C43 27, 35 21, 28 20" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="28" cy="20" r="2" fill="#0f172a"/>
+                <path d="M47 37 C42 25, 33 18, 25 17" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="25" cy="17" r="2.2" fill="#0f172a"/>
 
-                <path d="M53 38 C57 27, 65 21, 72 20" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="72" cy="20" r="2" fill="#0f172a"/>
+                <path d="M53 37 C58 25, 67 18, 75 17" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="75" cy="17" r="2.2" fill="#0f172a"/>
 
                 <!-- Top Cyan Wing (Smooth Bezier) -->
-                <path d="M50 47 C40 33, 36 17, 50 13 C64 17, 60 33, 50 47 Z" fill="url(#cyanWingGrad)"/>
+                <path d="M50 47 C37 32, 33 16, 50 11 C67 16, 63 32, 50 47 Z" fill="url(#cmykCyan)"/>
                 
                 <!-- Right Yellow Wing -->
-                <path d="M53 50 C67 40, 83 36, 87 50 C83 64, 67 60, 53 50 Z" fill="url(#yellowWingGrad)"/>
+                <path d="M53 50 C68 37, 84 33, 89 50 C84 67, 68 63, 53 50 Z" fill="url(#cmykYellow)"/>
                 
                 <!-- Bottom Magenta Wing -->
-                <path d="M50 53 C60 67, 56 83, 50 87 C44 83, 40 67, 50 53 Z" fill="url(#magentaWingGrad)"/>
+                <path d="M50 53 C63 68, 59 84, 50 89 C41 84, 37 68, 50 53 Z" fill="url(#cmykMagenta)"/>
                 
                 <!-- Left Black/Carbon Wing -->
-                <path d="M47 50 C33 60, 17 64, 13 50 C17 36, 33 40, 47 50 Z" fill="url(#blackWingGrad)"/>
+                <path d="M47 50 C32 63, 16 67, 11 50 C16 33, 32 37, 47 50 Z" fill="url(#cmykBlack)"/>
                 
-                <!-- Base Ink Ripple (Print Press Impression) -->
-                <ellipse cx="50" cy="89" rx="10" ry="2" fill="#cbd5e1" opacity="0.6"/>
-
                 <!-- Center Precision Core Dot -->
-                <circle cx="50" cy="50" r="5" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
-                <circle cx="50" cy="50" r="2.2" fill="#f97316"/>
+                <circle cx="50" cy="50" r="5.2" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+                <circle cx="50" cy="50" r="2.4" fill="#f97316"/>
               </svg>
             </div>
 
-            <!-- Company Name & Tags Lockup -->
+            <!-- Redesigned Company Name & Tags Lockup -->
             <div class="flex flex-col whitespace-nowrap">
-              <!-- Row 1: Company Name + Tiruppur Badge -->
-              <div class="flex items-center gap-2">
-                <span class="font-black text-xl sm:text-2xl tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
+              
+              <!-- Row 1: Company Name + Redesigned Tiruppur Badge -->
+              <div class="flex items-center gap-2.5">
+                <span class="font-black text-2xl sm:text-[26px] tracking-tight text-slate-900 group-hover:text-brand-orange transition-colors">
                   PHOENIX
                 </span>
-                <span class="px-2 py-0.5 text-[9px] font-black tracking-widest rounded-md bg-slate-100 text-slate-600 uppercase border border-slate-200">
+                
+                <!-- Modern Tiruppur Live Hub Pill Badge -->
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[10px] font-black tracking-wider uppercase shadow-xs border border-slate-800">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   TIRUPPUR
                 </span>
               </div>
 
-              <!-- Row 2: Subtitle -->
-              <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block -mt-0.5">
-                LABELS, STICKERS &amp; PRINTING
-              </span>
+              <!-- Row 2: Redesigned Wide-Tracked Tagline -->
+              <div class="flex items-center gap-2 -mt-0.5">
+                <span class="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-slate-400 group-hover:text-slate-600 transition-colors">
+                  LABELS &bull; STICKERS &bull; PRINTING
+                </span>
+              </div>
+
             </div>
           </a>
 
@@ -179,7 +183,23 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <div *ngIf="isMobileMenuOpen()" class="lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl animate-fadeIn">
+      <div *ngIf="isMobileMenuOpen()" class="lg:hidden border-t border-slate-100 bg-white px-4 pt-4 pb-6 space-y-3 shadow-xl animate-fadeIn">
+        <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+          <div class="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 p-1 flex items-center justify-center shrink-0">
+            <img src="favicon.svg" alt="Phoenix Emblem" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex flex-col whitespace-nowrap">
+            <div class="flex items-center gap-2">
+              <span class="font-black text-xl tracking-tight text-slate-900">PHOENIX</span>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[9px] font-black uppercase">
+                <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
+                TIRUPPUR
+              </span>
+            </div>
+            <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">LABELS, STICKERS &amp; PRINTING</span>
+          </div>
+        </div>
+
         <a routerLink="/" (click)="closeMobileMenu()" 
            routerLinkActive="bg-blue-50 text-brand-blue font-bold"
            [routerLinkActiveOptions]="{exact: true}"

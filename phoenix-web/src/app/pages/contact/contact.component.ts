@@ -112,7 +112,21 @@ import { FormsModule } from '@angular/forms';
           <div class="lg:col-span-5 space-y-6">
             
             <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-200 space-y-4">
-              <h3 class="text-lg font-bold text-slate-900">Factory Headquarters</h3>
+              <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+                <div class="w-11 h-11 rounded-2xl bg-white shadow-sm border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                  <img src="favicon.svg" alt="Phoenix Emblem" class="w-full h-full object-contain" />
+                </div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-black text-xl tracking-tight text-slate-900">PHOENIX</span>
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-amber-300 text-[9px] font-black uppercase">
+                      <span class="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
+                      TIRUPPUR
+                    </span>
+                  </div>
+                  <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">LABELS, STICKERS &amp; PRINTING</span>
+                </div>
+              </div>
               
               <div class="space-y-3 text-xs sm:text-sm text-slate-600">
                 <div class="flex items-start gap-3">

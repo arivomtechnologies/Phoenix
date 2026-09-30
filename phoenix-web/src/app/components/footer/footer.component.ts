@@ -16,13 +16,21 @@ import { FormsModule } from '@angular/forms';
           
           <!-- Column 1: Company Profile (2 Cols Wide on Large) -->
           <div class="lg:col-span-2 space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="bg-white p-1 rounded-2xl shadow-md border border-slate-700/50 w-11 h-11 flex items-center justify-center">
+            <div class="flex items-center gap-3.5">
+              <div class="bg-white p-1.5 rounded-2xl shadow-lg border border-slate-700/60 w-12 h-12 flex items-center justify-center shrink-0">
                 <img src="favicon.svg" alt="Phoenix Labels Logo" class="w-full h-full object-contain" />
               </div>
-              <div>
-                <span class="text-white font-extrabold text-xl tracking-tight block">PHOENIX</span>
-                <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block">LABELS, STICKERS &amp; PRINTING</span>
+              <div class="flex flex-col whitespace-nowrap">
+                <div class="flex items-center gap-2">
+                  <span class="text-white font-black text-2xl tracking-tight block">PHOENIX</span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800 text-amber-300 text-[10px] font-black tracking-wider uppercase border border-slate-700 shadow-xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    TIRUPPUR
+                  </span>
+                </div>
+                <span class="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-slate-400 block -mt-0.5">
+                  LABELS &bull; STICKERS &bull; PRINTING
+                </span>
               </div>
             </div>
 
