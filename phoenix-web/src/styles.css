@@ -44,3 +44,46 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Continuous Auto-Moving Gallery Marquee (Factory Sample Gallery) */
+@keyframes gallery-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes gallery-marquee-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-gallery-marquee {
+  display: flex;
+  width: max-content;
+  animation: gallery-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-gallery-marquee:hover,
+.animate-gallery-marquee.paused {
+  animation-play-state: paused;
+}
+
+.animate-gallery-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: gallery-marquee-reverse 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-gallery-marquee-reverse:hover,
+.animate-gallery-marquee-reverse.paused {
+  animation-play-state: paused;
+}

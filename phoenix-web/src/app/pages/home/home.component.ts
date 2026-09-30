@@ -1,4 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -41,7 +41,7 @@ import { FormsModule } from '@angular/forms';
             <!-- Action Buttons (FillTrip High-Contrast CTAs) -->
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a routerLink="/contact-us" 
-                 class="px-7 py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all flex items-center justify-center gap-2 group">
+                 class="px-7 py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all flex items-center justify-center gap-2 group whitespace-nowrap">
                 <span>Request Production Samples</span>
                 <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -49,7 +49,7 @@ import { FormsModule } from '@angular/forms';
               </a>
 
               <a routerLink="/capabilities" 
-                 class="px-7 py-4 text-base font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-full shadow-sm hover:shadow transition-all text-center">
+                 class="px-7 py-4 text-base font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-full shadow-sm hover:shadow transition-all text-center whitespace-nowrap">
                 Explore 21+ Capabilities
               </a>
             </div>
@@ -57,15 +57,15 @@ import { FormsModule } from '@angular/forms';
             <!-- Trust Micro-Badges -->
             <div class="pt-6 flex flex-wrap items-center gap-6 text-xs font-semibold text-slate-500">
               <span class="flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 OEKO-TEX Standard 100 Inks
               </span>
               <span class="flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 50+ Industrial Wash Durability
               </span>
               <span class="flex items-center gap-1.5">
-                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 24h Rapid Swatch Turnaround
               </span>
             </div>
@@ -285,47 +285,150 @@ import { FormsModule } from '@angular/forms';
     </section>
 
     <!-- ========================================================================= -->
-    <!-- 5. REAL PRODUCTION GALLERY CAROUSEL (30 SAMPLES FROM TIRUPPUR FACTORY)    -->
+    <!-- 5. REAL PRODUCTION GALLERY: CONTINUOUS AUTO-MOVING DUAL-TRACK CAROUSEL    -->
+    <!-- (30 Factory Samples Auto-Streaming with Pause on Hover & Click to Enlarge)-->
     <!-- ========================================================================= -->
-    <section class="py-16 sm:py-24 bg-slate-900 text-white relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div class="space-y-2">
-            <span class="text-amber-400 font-bold text-xs uppercase tracking-wider">Verified Production Outputs</span>
-            <h2 class="text-3xl font-extrabold text-white tracking-tight">Factory Sample Gallery</h2>
-            <p class="text-slate-400 text-sm">Real garment labels, screen prints, and silicone transfers manufactured at our Tiruppur facility.</p>
+    <section class="py-16 sm:py-24 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+      
+      <!-- Section Header -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>AUTO-STREAMING FACTORY SAMPLES &bull; HOVER TO FREEZE</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Factory Sample Gallery
+            </h2>
+            <p class="text-slate-400 text-sm max-w-2xl font-normal">
+              30 authentic garment labels, silicone 3D prints, DTF transfers, and woven tags manufactured at our Tiruppur facility. Auto-moving continuous stream — hover to freeze or click to inspect in high resolution.
+            </p>
           </div>
 
-          <div class="flex items-center gap-3">
-            <button (click)="prevGallery()" 
-                    class="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-white transition"
-                    aria-label="Previous image">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <!-- Controls: Pause/Play & View All Portfolio Link -->
+          <div class="flex items-center gap-3 shrink-0">
+            <button (click)="toggleGalleryPause()" 
+                    type="button"
+                    class="px-4 py-2.5 rounded-full text-xs font-bold border transition-colors flex items-center gap-2"
+                    [ngClass]="isGalleryPaused() ? 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-500' : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'">
+              <span *ngIf="!isGalleryPaused()">⏸️ Pause Auto-Move</span>
+              <span *ngIf="isGalleryPaused()">▶️ Resume Auto-Move</span>
             </button>
-            <button (click)="nextGallery()" 
-                    class="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 flex items-center justify-center text-white transition"
-                    aria-label="Next image">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-            <a routerLink="/portfolio" class="ml-2 px-4 py-2 rounded-full bg-brand-orange hover:bg-orange-600 text-xs font-bold text-white transition">
-              View All 30 Samples &rarr;
+
+            <a routerLink="/portfolio" class="px-5 py-2.5 rounded-full bg-brand-orange hover:bg-orange-600 text-xs font-bold text-white transition-all shadow-md shadow-orange-500/20 whitespace-nowrap">
+              Explore All 30 Samples &rarr;
             </a>
           </div>
         </div>
+      </div>
 
-        <!-- Carousel Track -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          <div *ngFor="let img of visibleGallerySamples(); let i = index" 
-               class="group relative aspect-square rounded-2xl overflow-hidden bg-slate-800 border border-slate-700/60 cursor-pointer shadow-md"
-               (click)="openSampleModal(img)">
-            <img [src]="'images/gallery/' + img" 
-                 [alt]="'Production Sample ' + img" 
-                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+      <!-- Marquee Wrapper with Edge Fade Gradients -->
+      <div class="relative w-full overflow-hidden space-y-5">
+        
+        <!-- Left & Right Gradient Vignettes -->
+        <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-950 to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-950 to-transparent z-20 pointer-events-none"></div>
+
+        <!-- Track 1: Moving Left (Samples 1 to 15) -->
+        <div class="overflow-hidden flex">
+          <div class="animate-gallery-marquee flex items-center gap-4 py-1"
+               [class.paused]="isGalleryPaused()">
             
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
-              <span class="text-[11px] font-bold text-amber-300">Inspect Sample #{{ img.replace('.jpeg', '') }}</span>
+            <!-- Set 1 (Row 1) -->
+            <div *ngFor="let img of row1Samples"
+                 (click)="openSampleModal(img)"
+                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-amber-400/60">
+              <img [src]="'images/gallery/' + img" 
+                   [alt]="'Production Sample ' + img" 
+                   loading="lazy"
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              
+              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30">
+                #{{ img.replace('.jpeg', '') }}
+              </div>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-xs font-bold text-amber-300">Phoenix Production Sample</span>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
+                  <span>Click to zoom</span> &rarr;
+                </span>
+              </div>
             </div>
+
+            <!-- Set 2 (Exact duplicate for seamless infinite loop) -->
+            <div *ngFor="let img of row1Samples"
+                 (click)="openSampleModal(img)"
+                 aria-hidden="true"
+                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-amber-400/60">
+              <img [src]="'images/gallery/' + img" 
+                   [alt]="'Production Sample ' + img" 
+                   loading="lazy"
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              
+              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-amber-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-amber-400/30">
+                #{{ img.replace('.jpeg', '') }}
+              </div>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-xs font-bold text-amber-300">Phoenix Production Sample</span>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
+                  <span>Click to zoom</span> &rarr;
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Track 2: Moving Reverse/Right (Samples 16 to 30) -->
+        <div class="overflow-hidden flex">
+          <div class="animate-gallery-marquee-reverse flex items-center gap-4 py-1"
+               [class.paused]="isGalleryPaused()">
+            
+            <!-- Set 1 (Row 2) -->
+            <div *ngFor="let img of row2Samples"
+                 (click)="openSampleModal(img)"
+                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-cyan-400/60">
+              <img [src]="'images/gallery/' + img" 
+                   [alt]="'Production Sample ' + img" 
+                   loading="lazy"
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              
+              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30">
+                #{{ img.replace('.jpeg', '') }}
+              </div>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-xs font-bold text-cyan-300">Phoenix Production Sample</span>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
+                  <span>Click to zoom</span> &rarr;
+                </span>
+              </div>
+            </div>
+
+            <!-- Set 2 (Exact duplicate for seamless infinite loop) -->
+            <div *ngFor="let img of row2Samples"
+                 (click)="openSampleModal(img)"
+                 aria-hidden="true"
+                 class="group relative w-52 sm:w-64 h-52 sm:h-64 rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 cursor-pointer shadow-lg shrink-0 transition-transform duration-300 hover:scale-105 hover:border-cyan-400/60">
+              <img [src]="'images/gallery/' + img" 
+                   [alt]="'Production Sample ' + img" 
+                   loading="lazy"
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              
+              <div class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur-sm text-cyan-300 font-extrabold text-[10px] px-2.5 py-1 rounded-full border border-cyan-400/30">
+                #{{ img.replace('.jpeg', '') }}
+              </div>
+
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                <span class="text-xs font-bold text-cyan-300">Phoenix Production Sample</span>
+                <span class="text-[11px] text-slate-300 flex items-center gap-1 font-semibold mt-0.5">
+                  <span>Click to zoom</span> &rarr;
+                </span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -348,10 +451,10 @@ import { FormsModule } from '@angular/forms';
         </p>
 
         <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a routerLink="/contact-us" class="px-8 py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-lg shadow-orange-500/30 transition-all">
+          <a routerLink="/contact-us" class="px-8 py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-lg shadow-orange-500/30 transition-all whitespace-nowrap">
             Order Free Swatch Pack &rarr;
           </a>
-          <a href="tel:9944107633" class="px-8 py-4 text-base font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-full transition-all">
+          <a href="tel:9944107633" class="px-8 py-4 text-base font-bold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-full transition-all whitespace-nowrap">
             Call Tiruppur Office: +91 9944107633
           </a>
         </div>
@@ -362,11 +465,11 @@ import { FormsModule } from '@angular/forms';
     <div *ngIf="selectedSample()" 
          class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
          (click)="closeSampleModal()">
-      <div class="relative max-w-xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-700 p-3" (click)="$event.stopPropagation()">
+      <div class="relative max-w-xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-700 p-3 shadow-2xl" (click)="$event.stopPropagation()">
         <img [src]="'images/gallery/' + selectedSample()" alt="Enlarged Sample" class="w-full h-auto rounded-2xl" />
         <div class="p-4 flex items-center justify-between text-white">
           <span class="text-sm font-bold">Phoenix Production Sample: {{ selectedSample() }}</span>
-          <button (click)="closeSampleModal()" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-300">
+          <button (click)="closeSampleModal()" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold text-slate-300">
             Close &times;
           </button>
         </div>
@@ -375,19 +478,12 @@ import { FormsModule } from '@angular/forms';
   `
 })
 export class HomeComponent {
-  galleryIndex = signal(0);
   selectedSample = signal<string | null>(null);
+  isGalleryPaused = signal(false);
 
   allSamples = Array.from({ length: 30 }, (_, i) => `${i + 1}.jpeg`);
-
-  visibleGallerySamples = computed(() => {
-    const start = this.galleryIndex();
-    const result = [];
-    for (let i = 0; i < 6; i++) {
-      result.push(this.allSamples[(start + i) % this.allSamples.length]);
-    }
-    return result;
-  });
+  row1Samples = Array.from({ length: 15 }, (_, i) => `${i + 1}.jpeg`);
+  row2Samples = Array.from({ length: 15 }, (_, i) => `${i + 16}.jpeg`);
 
   capabilities = [
     { name: 'High-Density 3D Stickers', desc: 'Thick, dimensional rubberized graphics with sharp vertical walls for activewear.' },
@@ -413,12 +509,8 @@ export class HomeComponent {
     { name: 'Flock Velvety Transfers', desc: 'Dense synthetic fibers creating a luxurious velvet, soft-touch textile surface.' }
   ];
 
-  nextGallery() {
-    this.galleryIndex.update(idx => (idx + 6) % this.allSamples.length);
-  }
-
-  prevGallery() {
-    this.galleryIndex.update(idx => (idx - 6 + this.allSamples.length) % this.allSamples.length);
+  toggleGalleryPause() {
+    this.isGalleryPaused.update(v => !v);
   }
 
   openSampleModal(sample: string) {
