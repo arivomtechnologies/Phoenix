@@ -11,18 +11,18 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
     <!-- Portfolio Header -->
     <section class="bg-brand-navy text-white py-16 sm:py-20 border-b border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <span class="px-3.5 py-1.5 rounded-full bg-amber-400/20 text-amber-400 border border-amber-400/30 text-xs font-bold uppercase tracking-wider inline-block">
+        <span class="animate-fade-in-down px-3.5 py-1.5 rounded-full bg-amber-400/20 text-amber-400 border border-amber-400/30 text-xs font-bold uppercase tracking-wider inline-block">
           Authentic Production Archive
         </span>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+        <h1 class="animate-fade-in-up delay-150 text-4xl sm:text-5xl font-extrabold tracking-tight">
           Factory Portfolio &amp; Swatch Gallery
         </h1>
-        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+        <p class="animate-fade-in-up delay-250 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
           Explore 30 verified production samples manufactured at our Tiruppur facility. Every item reflects real export order deliverables with calibrated wash-durability and tactile quality.
         </p>
 
         <!-- Category Filter Tabs (FillTrip Pill Style) -->
-        <div class="pt-6 flex flex-wrap items-center justify-center gap-2">
+        <div class="animate-fade-in-up delay-300 pt-6 flex flex-wrap items-center justify-center gap-2">
           <button *ngFor="let tab of filterTabs"
                   (click)="activeCategory.set(tab.key)"
                   [class.bg-brand-orange]="activeCategory() === tab.key"
@@ -30,7 +30,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
                   [class.shadow-md]="activeCategory() === tab.key"
                   [class.bg-slate-800]="activeCategory() !== tab.key"
                   [class.text-slate-300]="activeCategory() !== tab.key"
-                  class="px-4 py-2 rounded-full text-xs font-bold transition-all border border-slate-700 whitespace-nowrap">
+                  class="hover-lift-sm active:scale-95 px-4 py-2 rounded-full text-xs font-bold transition-all border border-slate-700 whitespace-nowrap">
             {{ tab.label }} ({{ getCategoryCount(tab.key) }})
           </button>
         </div>
@@ -44,12 +44,12 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <div *ngFor="let item of filteredSamples()"
                (click)="openLightbox(item)"
-               class="group relative rounded-3xl overflow-hidden bg-white shadow-card border border-slate-200/80 cursor-pointer aspect-square hover:shadow-float transition-all duration-300">
+               class="group relative rounded-3xl overflow-hidden bg-white shadow-card border border-slate-200/80 cursor-pointer aspect-square hover-lift hover:shadow-2xl hover:border-slate-300 transition-all duration-300">
             
             <img [src]="'images/gallery/' + item.filename" 
                  [alt]="item.title" 
                  loading="lazy"
-                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
 
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
               <span class="text-[10px] uppercase font-black text-amber-400 tracking-wider">{{ item.categoryLabel }}</span>
@@ -60,7 +60,7 @@ import { FACTORY_PRODUCTION_SAMPLES, ProductionSample } from '../../data/samples
               </span>
             </div>
 
-            <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-3 py-1 rounded-full border border-slate-700/80">
+            <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-amber-300 text-[10px] font-bold px-3 py-1 rounded-full border border-slate-700/80 transition-transform duration-300 group-hover:scale-105">
               {{ item.categoryLabel }}
             </span>
           </div>

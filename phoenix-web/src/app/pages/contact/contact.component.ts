@@ -11,13 +11,13 @@ import { FormsModule } from '@angular/forms';
     <!-- Header Hero Banner -->
     <section class="bg-brand-navy text-white py-16 sm:py-20 border-b border-slate-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <span class="px-3.5 py-1.5 rounded-full bg-orange-500/20 text-brand-orange border border-orange-500/30 text-xs font-bold uppercase tracking-wider inline-block">
+        <span class="animate-fade-in-down px-3.5 py-1.5 rounded-full bg-orange-500/20 text-brand-orange border border-orange-500/30 text-xs font-bold uppercase tracking-wider inline-block">
           Direct Factory Contact
         </span>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+        <h1 class="animate-fade-in-up delay-150 text-4xl sm:text-5xl font-extrabold tracking-tight">
           Connect With Our Production Team
         </h1>
-        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
+        <p class="animate-fade-in-up delay-250 text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">
           Whether you need a custom swatch pack, bulk production quotation, or technical advice on heat-seal application, we are here 24/7.
         </p>
       </div>
@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
           <!-- Left: Contact Form -->
-          <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-card border border-slate-200">
+          <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-card border border-slate-200 animate-fade-in-up delay-300">
             <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Request Swatch Pack or Quote</h2>
             <p class="text-slate-600 text-xs sm:text-sm mb-8">
               Fill in your requirement below. Our merchandising team will respond within 2-4 business hours.
@@ -46,7 +46,7 @@ import { FormsModule } from '@angular/forms';
                          name="name" 
                          placeholder="Enter full name" 
                          required 
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange" />
+                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all" />
                 </div>
 
                 <div>
@@ -56,7 +56,7 @@ import { FormsModule } from '@angular/forms';
                          name="email" 
                          placeholder="name@brand.com" 
                          required 
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange" />
+                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all" />
                 </div>
               </div>
 
@@ -68,14 +68,14 @@ import { FormsModule } from '@angular/forms';
                          name="phone" 
                          placeholder="+91 99441 07633" 
                          required 
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange" />
+                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all" />
                 </div>
 
                 <div>
                   <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Service Category</label>
                   <select [(ngModel)]="formData.category" 
                           name="category" 
-                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange bg-white">
+                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange bg-white transition-all">
                     <option value="Silicone 3D Printing">3D Silicone Printing</option>
                     <option value="DTF Digital Transfers">DTF Digital Transfers</option>
                     <option value="Woven Damask Labels">Damask Woven Labels</option>
@@ -92,15 +92,15 @@ import { FormsModule } from '@angular/forms';
                           name="message" 
                           placeholder="Describe your garment specifications, expected quantity, and turnaround requirements..." 
                           required 
-                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange"></textarea>
+                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all"></textarea>
               </div>
 
               <button type="submit" 
-                      class="w-full py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-xl shadow-lg shadow-orange-500/25 transition-all">
+                      class="btn-shimmer hover-lift-sm active:scale-95 w-full py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all">
                 Submit Production Request &rarr;
               </button>
 
-              <div *ngIf="submitted()" class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2">
+              <div *ngIf="submitted()" class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2 animate-fadeIn">
                 <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                 <span>Thank you! Your request has been sent to our Tiruppur production desk. We will reach out shortly.</span>
               </div>
@@ -109,7 +109,7 @@ import { FormsModule } from '@angular/forms';
           </div>
 
           <!-- Right: Contact Cards & Info -->
-          <div class="lg:col-span-5 space-y-6">
+          <div class="lg:col-span-5 space-y-6 animate-fade-in-scale delay-200">
             
             <div class="bg-white p-6 rounded-3xl shadow-card border border-slate-200 space-y-4">
               <div class="flex items-center gap-3 pb-3 border-b border-slate-100">

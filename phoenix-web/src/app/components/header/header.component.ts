@@ -167,7 +167,7 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
             
             <!-- Call Factory Button -->
             <a href="tel:9944107633" 
-               class="whitespace-nowrap px-4 py-2.5 text-xs xl:text-sm font-bold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all inline-flex items-center gap-2 shrink-0">
+               class="hover-lift-sm active:scale-95 whitespace-nowrap px-4 py-2.5 text-xs xl:text-sm font-bold text-slate-700 border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all inline-flex items-center gap-2 shrink-0">
               <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
@@ -176,9 +176,9 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
 
             <!-- High-Contrast Orange Pill Button (FillTrip Primary CTA Style) -->
             <a routerLink="/contact-us" 
-               class="whitespace-nowrap px-5 py-2.5 text-xs xl:text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 active:scale-95 rounded-full shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 transition-all inline-flex items-center gap-2 shrink-0 group">
+               class="btn-shimmer hover-lift-sm active:scale-95 whitespace-nowrap px-5 py-2.5 text-xs xl:text-sm font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-full shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 transition-all inline-flex items-center gap-2 shrink-0 group">
               <span>Request Samples</span>
-              <svg class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
               </svg>
             </a>
