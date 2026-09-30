@@ -104,41 +104,61 @@ import { RouterModule, RouterLinkActive } from '@angular/router';
             
             <!-- Home -->
             <a routerLink="/" 
-               routerLinkActive="text-brand-blue font-bold after:w-full"
                [routerLinkActiveOptions]="{exact: true}"
-               class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
-              Home
+               routerLinkActive="text-brand-blue font-bold"
+               #rlaHome="routerLinkActive"
+               class="h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+              <span class="relative py-1">
+                Home
+                <span *ngIf="rlaHome.isActive" class="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-brand-blue rounded-full"></span>
+              </span>
             </a>
             
             <!-- Capabilities -->
             <a routerLink="/capabilities" 
-               routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
-              Capabilities
+               routerLinkActive="text-brand-blue font-bold"
+               #rlaCap="routerLinkActive"
+               class="h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+              <span class="relative py-1">
+                Capabilities
+                <span *ngIf="rlaCap.isActive" class="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-brand-blue rounded-full"></span>
+              </span>
             </a>
 
             <!-- Portfolio with 30 SAMPLES Tag -->
             <a routerLink="/portfolio" 
-               routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
-              <span>Portfolio</span>
-              <span class="ml-1.5 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-full bg-amber-100 text-amber-800 border border-amber-300/60 whitespace-nowrap inline-flex items-center shrink-0">
-                30 SAMPLES
+               routerLinkActive="text-brand-blue font-bold"
+               #rlaPort="routerLinkActive"
+               class="h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+              <span class="relative py-1 flex items-center">
+                <span>Portfolio</span>
+                <span class="ml-1.5 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-full bg-amber-100 text-amber-800 border border-amber-300/60 whitespace-nowrap inline-flex items-center shrink-0">
+                  30 SAMPLES
+                </span>
+                <span *ngIf="rlaPort.isActive" class="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-brand-blue rounded-full"></span>
               </span>
             </a>
 
             <!-- Factory & Quality -->
             <a routerLink="/quality" 
-               routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
-              Factory &amp; Quality
+               routerLinkActive="text-brand-blue font-bold"
+               #rlaQual="routerLinkActive"
+               class="h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+              <span class="relative py-1">
+                Factory &amp; Quality
+                <span *ngIf="rlaQual.isActive" class="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-brand-blue rounded-full"></span>
+              </span>
             </a>
 
             <!-- Contact & Support -->
             <a routerLink="/contact-us" 
-               routerLinkActive="text-brand-blue font-bold after:w-full"
-               class="relative h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-blue after:transition-all after:duration-200">
-              Contact &amp; Support
+               routerLinkActive="text-brand-blue font-bold"
+               #rlaContact="routerLinkActive"
+               class="h-20 flex items-center px-3 xl:px-3.5 text-xs xl:text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
+              <span class="relative py-1">
+                Contact &amp; Support
+                <span *ngIf="rlaContact.isActive" class="absolute -bottom-1.5 left-0 right-0 h-[2.5px] bg-brand-blue rounded-full"></span>
+              </span>
             </a>
           </nav>
 
