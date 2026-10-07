@@ -133,12 +133,18 @@ import { FormsModule } from '@angular/forms';
             <!-- Developed by Arivom Technologies Badge -->
             <div class="inline-flex items-center gap-1.5 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700/80 text-[11px]">
               <span class="text-slate-400">Developed by</span>
-              <a href="mailto:arivomtechnologies@gmail.com" 
+              <a href="https://arivomtechnologies.com/" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
                  class="text-amber-400 hover:text-amber-300 font-bold transition-colors inline-flex items-center gap-1 hover:underline"
-                 title="Contact Developer">
+                 title="Visit Arivom Technologies">
                 <span>Arivom Technologies</span>
-                <span class="text-slate-400 font-normal">&bull;</span>
-                <span class="text-slate-300 font-medium">arivomtechnologies&#64;gmail.com</span>
+              </a>
+              <span class="text-slate-500 font-normal">&bull;</span>
+              <a href="mailto:arivomtechnologies@gmail.com"
+                 class="text-slate-300 hover:text-white font-medium transition-colors"
+                 title="Email Arivom Technologies">
+                arivomtechnologies&#64;gmail.com
               </a>
             </div>
           </div>
