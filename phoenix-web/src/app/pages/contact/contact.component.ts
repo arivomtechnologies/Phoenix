@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EmailService, ContactEnquiryData } from '../../services/email.service';
 
 @Component({
   selector: 'app-contact',
@@ -33,7 +34,7 @@ import { FormsModule } from '@angular/forms';
           <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-card border border-slate-200 scroll-reveal-left">
             <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Request Swatch Pack or Quote</h2>
             <p class="text-slate-600 text-xs sm:text-sm mb-8">
-              Fill in your requirement below. Our merchandising team will respond within 2-4 business hours.
+              Fill in your requirement below. You will immediately receive a confirmation email, and our merchandising desk will get in touch with you.
             </p>
 
             <form (submit)="onSubmit($event)" class="space-y-4">
@@ -44,9 +45,10 @@ import { FormsModule } from '@angular/forms';
                   <input type="text" 
                          [(ngModel)]="formData.name" 
                          name="name" 
+                         [disabled]="isSubmitting()"
                          placeholder="Enter full name" 
                          required 
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all" />
+                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all disabled:opacity-60" />
                 </div>
 
                 <div>
@@ -54,9 +56,10 @@ import { FormsModule } from '@angular/forms';
                   <input type="email" 
                          [(ngModel)]="formData.email" 
                          name="email" 
+                         [disabled]="isSubmitting()"
                          placeholder="name@brand.com" 
                          required 
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all" />
+                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all disabled:opacity-60" />
                 </div>
               </div>
 
@@ -66,21 +69,23 @@ import { FormsModule } from '@angular/forms';
                   <input type="tel" 
                          [(ngModel)]="formData.phone" 
                          name="phone" 
+                         [disabled]="isSubmitting()"
                          placeholder="+91 99441 07633" 
                          required 
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all" />
+                         class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all disabled:opacity-60" />
                 </div>
 
                 <div>
                   <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Service Category</label>
                   <select [(ngModel)]="formData.category" 
                           name="category" 
-                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange bg-white transition-all">
+                          [disabled]="isSubmitting()"
+                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange bg-white transition-all disabled:opacity-60">
                     <option value="Silicone 3D Printing">3D Silicone Printing</option>
                     <option value="DTF Digital Transfers">DTF Digital Transfers</option>
                     <option value="Woven Damask Labels">Damask Woven Labels</option>
                     <option value="Embossing & Tapes">Garment Embossing &amp; Tapes</option>
-                    <option value="Other / Bulk Inquiry">Full Sample Swatch Kit</option>
+                    <option value="Full Sample Swatch Kit">Full Sample Swatch Kit</option>
                   </select>
                 </div>
               </div>
@@ -90,19 +95,38 @@ import { FormsModule } from '@angular/forms';
                 <textarea rows="4" 
                           [(ngModel)]="formData.message" 
                           name="message" 
+                          [disabled]="isSubmitting()"
                           placeholder="Describe your garment specifications, expected quantity, and turnaround requirements..." 
                           required 
-                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all"></textarea>
+                          class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange transition-all disabled:opacity-60"></textarea>
               </div>
 
               <button type="submit" 
-                      class="btn-shimmer hover-lift-sm active:scale-95 w-full py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all">
-                Submit Production Request &rarr;
+                      [disabled]="isSubmitting()"
+                      class="btn-shimmer hover-lift-sm active:scale-95 w-full py-4 text-base font-bold text-white bg-brand-orange hover:bg-orange-600 rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                <span *ngIf="!isSubmitting()">Submit Production Request &rarr;</span>
+                <span *ngIf="isSubmitting()" class="flex items-center gap-2">
+                  <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                  </svg>
+                  <span>Dispatching Emails...</span>
+                </span>
               </button>
 
-              <div *ngIf="submitted()" class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2 animate-fadeIn">
-                <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                <span>Thank you! Your request has been sent to our Tiruppur production desk. We will reach out shortly.</span>
+              <!-- Success Alert Message -->
+              <div *ngIf="submitted()" class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-start gap-2.5 animate-fadeIn">
+                <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" clip-rule="evenodd"/></svg>
+                <div>
+                  <strong class="block text-emerald-900 font-bold mb-0.5">Enquiry Successfully Submitted!</strong>
+                  <span>Your request has been dispatched to our Tiruppur factory desk. A confirmation auto-reply email has also been sent to <strong>{{ lastSentEmail() }}</strong>.</span>
+                </div>
+              </div>
+
+              <!-- Error Alert Message -->
+              <div *ngIf="submissionError()" class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2 animate-fadeIn">
+                <svg class="w-5 h-5 text-rose-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                <span>{{ submissionError() }}</span>
               </div>
 
             </form>
@@ -246,7 +270,9 @@ import { FormsModule } from '@angular/forms';
   `
 })
 export class ContactComponent {
-  formData = {
+  private emailService = inject(EmailService);
+
+  formData: ContactEnquiryData = {
     name: '',
     email: '',
     phone: '',
@@ -255,12 +281,36 @@ export class ContactComponent {
   };
 
   submitted = signal(false);
+  submissionError = signal<string | null>(null);
+  lastSentEmail = signal('');
 
-  onSubmit(e: Event) {
+  get isSubmitting() {
+    return this.emailService.isSending;
+  }
+
+  async onSubmit(e: Event): Promise<void> {
     e.preventDefault();
-    if (this.formData.name && this.formData.email) {
+    if (!this.formData.name || !this.formData.email) return;
+
+    this.submissionError.set(null);
+    const result = await this.emailService.sendEnquiryEmails(this.formData);
+
+    if (result.adminSuccess || result.autoReplySuccess || !result.error) {
+      this.lastSentEmail.set(this.formData.email);
       this.submitted.set(true);
-      setTimeout(() => this.submitted.set(false), 8000);
+      
+      // Reset form
+      this.formData = {
+        name: '',
+        email: '',
+        phone: '',
+        category: 'Silicone 3D Printing',
+        message: ''
+      };
+
+      setTimeout(() => this.submitted.set(false), 9000);
+    } else {
+      this.submissionError.set(result.error || 'Failed to submit enquiry. Please call or WhatsApp us directly.');
     }
   }
 }

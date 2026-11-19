@@ -197,30 +197,10 @@ import { FormsModule } from '@angular/forms';
         </div>
 
         <!-- ========================================================================= -->
-        <!-- 3. BOTTOM COPYRIGHT & DEVELOPER CREDIT BAR                                -->
+        <!-- 3. BOTTOM COPYRIGHT & LEGAL LINKS BAR                                     -->
         <!-- ========================================================================= -->
-        <div class="footer-bottom-bar pt-4 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left flex-wrap">
-            <p>&copy; {{ currentYear }} Phoenix Labels, Stickers &amp; Printing. All Rights Reserved. Tiruppur, India.</p>
-            
-            <!-- Developed by Arivom Technologies Badge with Parity Styling -->
-            <div class="inline-flex items-center gap-1.5 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700/80 text-[11px] shadow-sm hover:border-amber-400/50 transition-all">
-              <span class="text-slate-400">Developed by</span>
-              <a href="https://arivomtechnologies.com/" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="text-amber-400 hover:text-amber-300 font-bold transition-colors inline-flex items-center gap-1 hover:underline"
-                 title="Visit Arivom Technologies">
-                <span>Arivom Technologies</span>
-              </a>
-              <span class="text-slate-500 font-normal">&bull;</span>
-              <a href="mailto:arivomtechnologies@gmail.com"
-                 class="text-slate-300 hover:text-white font-medium transition-colors"
-                 title="Email Arivom Technologies">
-                arivomtechnologies&#64;gmail.com
-              </a>
-            </div>
-          </div>
+        <div class="footer-bottom-bar pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>&copy; {{ currentYear }} Phoenix Labels, Stickers &amp; Printing. All Rights Reserved. Tiruppur, India.</p>
 
           <div class="flex items-center gap-6 text-slate-400">
             <a routerLink="/" class="hover:text-slate-200 transition">Privacy Policy</a>
