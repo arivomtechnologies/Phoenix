@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://phoenixprintsolution.com/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://phoenixprintsolution.com/logo.png</image:loc>
+      <image:title>Phoenix Labels, Stickers &amp; Printing Tiruppur</image:title>
+      <image:caption>Premier garment printing and apparel accessories hub in Tiruppur</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Capabilities Page -->
+  <url>
+    <loc>https://phoenixprintsolution.com/capabilities</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://phoenixprintsolution.com/images/ai/hero_silicone_apparel.jpg</image:loc>
+      <image:title>3D Silicone Printing &amp; DTF Transfers</image:title>
+    </image:image>
+  </url>
+
+  <!-- Portfolio Page -->
+  <url>
+    <loc>https://phoenixprintsolution.com/portfolio</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Quality & Compliance Page -->
+  <url>
+    <loc>https://phoenixprintsolution.com/quality</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Us Page -->
+  <url>
+    <loc>https://phoenixprintsolution.com/contact-us</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
